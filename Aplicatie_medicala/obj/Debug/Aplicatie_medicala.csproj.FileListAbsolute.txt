@@ -8,3 +8,11 @@ D:\atm\anul III\baze de date\CodeFirstEF2\Aplicatie_medicala\Aplicatie_medicala\
 D:\atm\anul III\baze de date\CodeFirstEF2\Aplicatie_medicala\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.pdb
 D:\atm\anul III\baze de date\CodeFirstEF2\Aplicatie_medicala\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe.config
 D:\atm\anul III\baze de date\CodeFirstEF2\Aplicatie_medicala\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csprojResolveAssemblyReference.cache
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe.config
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.pdb
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csprojResolveAssemblyReference.cache
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Aplicatie.resources
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Login.resources
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Properties.Resources.resources
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache

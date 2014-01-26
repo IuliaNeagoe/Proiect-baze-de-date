@@ -21,5 +21,12 @@ namespace Aplicatie_medicala
         {
             Application.Exit();
         }
+
+        private void dgPacienti_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //afisam tabul cu tratament
+
+        }
+
     }
 }
