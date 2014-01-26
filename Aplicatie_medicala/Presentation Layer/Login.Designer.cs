@@ -47,8 +47,10 @@
             // 
             this.txbPassword.Location = new System.Drawing.Point(90, 142);
             this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(100, 20);
             this.txbPassword.TabIndex = 1;
+            this.txbPassword.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 
