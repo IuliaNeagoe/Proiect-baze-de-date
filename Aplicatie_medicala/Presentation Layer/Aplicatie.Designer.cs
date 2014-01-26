@@ -72,6 +72,20 @@
             this.btnAddMed = new System.Windows.Forms.Button();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dgPersonal = new System.Windows.Forms.DataGridView();
+            this.txbNumePers = new System.Windows.Forms.TextBox();
+            this.txbPrenumePers = new System.Windows.Forms.TextBox();
+            this.cmbFunctie = new System.Windows.Forms.ComboBox();
+            this.cmbSectiePers = new System.Windows.Forms.ComboBox();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.btnCautaPers = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblOperatii = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tbPacienti.SuspendLayout();
@@ -84,6 +98,9 @@
             this.tbPersonal.SuspendLayout();
             this.ctxmRefresh.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -403,6 +420,8 @@
             // 
             this.tbPersonal.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tbPersonal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tbPersonal.Controls.Add(this.lblOperatii);
+            this.tbPersonal.Controls.Add(this.dataGridView1);
             this.tbPersonal.Controls.Add(this.tabControl3);
             this.tbPersonal.Location = new System.Drawing.Point(4, 22);
             this.tbPersonal.Name = "tbPersonal";
@@ -536,6 +555,18 @@
             // 
             this.tabPage2.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.btnCautaPers);
+            this.tabPage2.Controls.Add(this.txbUsername);
+            this.tabPage2.Controls.Add(this.cmbSectiePers);
+            this.tabPage2.Controls.Add(this.cmbFunctie);
+            this.tabPage2.Controls.Add(this.txbPrenumePers);
+            this.tabPage2.Controls.Add(this.txbNumePers);
+            this.tabPage2.Controls.Add(this.dgPersonal);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -543,6 +574,136 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Cautare";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(6, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 18);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Nume";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(6, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 18);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Prenume";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(6, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 18);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Functie";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(6, 174);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 18);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Sectie";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(6, 222);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 18);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Username";
+            // 
+            // dgPersonal
+            // 
+            this.dgPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPersonal.Location = new System.Drawing.Point(9, 289);
+            this.dgPersonal.Name = "dgPersonal";
+            this.dgPersonal.Size = new System.Drawing.Size(355, 195);
+            this.dgPersonal.TabIndex = 9;
+            this.dgPersonal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPersonal_CellMouseClick);
+            // 
+            // txbNumePers
+            // 
+            this.txbNumePers.Location = new System.Drawing.Point(126, 34);
+            this.txbNumePers.Name = "txbNumePers";
+            this.txbNumePers.Size = new System.Drawing.Size(192, 20);
+            this.txbNumePers.TabIndex = 10;
+            // 
+            // txbPrenumePers
+            // 
+            this.txbPrenumePers.Location = new System.Drawing.Point(126, 73);
+            this.txbPrenumePers.Name = "txbPrenumePers";
+            this.txbPrenumePers.Size = new System.Drawing.Size(192, 20);
+            this.txbPrenumePers.TabIndex = 11;
+            // 
+            // cmbFunctie
+            // 
+            this.cmbFunctie.FormattingEnabled = true;
+            this.cmbFunctie.Location = new System.Drawing.Point(126, 119);
+            this.cmbFunctie.Name = "cmbFunctie";
+            this.cmbFunctie.Size = new System.Drawing.Size(192, 21);
+            this.cmbFunctie.TabIndex = 12;
+            // 
+            // cmbSectiePers
+            // 
+            this.cmbSectiePers.FormattingEnabled = true;
+            this.cmbSectiePers.Location = new System.Drawing.Point(126, 171);
+            this.cmbSectiePers.Name = "cmbSectiePers";
+            this.cmbSectiePers.Size = new System.Drawing.Size(192, 21);
+            this.cmbSectiePers.TabIndex = 13;
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Location = new System.Drawing.Point(126, 223);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(192, 20);
+            this.txbUsername.TabIndex = 14;
+            // 
+            // btnCautaPers
+            // 
+            this.btnCautaPers.Location = new System.Drawing.Point(140, 260);
+            this.btnCautaPers.Name = "btnCautaPers";
+            this.btnCautaPers.Size = new System.Drawing.Size(75, 23);
+            this.btnCautaPers.TabIndex = 15;
+            this.btnCautaPers.Text = "Cauta";
+            this.btnCautaPers.UseVisualStyleBackColor = true;
+            this.btnCautaPers.Click += new System.EventHandler(this.btnCautaPers_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(498, 54);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(377, 195);
+            this.dataGridView1.TabIndex = 10;
+            // 
+            // lblOperatii
+            // 
+            this.lblOperatii.AutoSize = true;
+            this.lblOperatii.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOperatii.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblOperatii.Location = new System.Drawing.Point(495, 18);
+            this.lblOperatii.Name = "lblOperatii";
+            this.lblOperatii.Size = new System.Drawing.Size(355, 18);
+            this.lblOperatii.TabIndex = 11;
+            this.lblOperatii.Text = "Operatii asupra bazei de date efectuate de    : \r\n";
             // 
             // Aplicatie
             // 
@@ -573,8 +734,13 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).EndInit();
             this.tbPersonal.ResumeLayout(false);
+            this.tbPersonal.PerformLayout();
             this.ctxmRefresh.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,5 +791,19 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnCautaPers;
+        private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.ComboBox cmbSectiePers;
+        private System.Windows.Forms.ComboBox cmbFunctie;
+        private System.Windows.Forms.TextBox txbPrenumePers;
+        private System.Windows.Forms.TextBox txbNumePers;
+        private System.Windows.Forms.DataGridView dgPersonal;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblOperatii;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

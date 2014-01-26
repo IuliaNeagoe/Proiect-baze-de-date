@@ -69,6 +69,19 @@ namespace Aplicatie_medicala
             }
         }
 
+        private void dgPersonal_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //la click pe un rand se afiseaza pentru persoana respectiva in dgOperatii ce operatii a efectuat si e posibil revert-ul
+
+        }
+
+        private void btnCautaPers_Click(object sender, EventArgs e)
+        {
+            //se face cautarea 
+            lblOperatii.Text = "Operatii asupra bazei de date efectuate de " + txbNumePers + ": ";
+
+        }
+
 
     }
 }
