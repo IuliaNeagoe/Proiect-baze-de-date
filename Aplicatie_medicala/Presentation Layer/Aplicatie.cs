@@ -14,14 +14,20 @@ namespace Aplicatie_medicala
     {
         public Aplicatie()
         {
+           
+        }
+        public Aplicatie(string user)
+        {
             InitializeComponent();
             initComp();
+            lblUser.Text = "Buna ziua, " + user;
         }
 
         private void initComp()
         {
             //butonul de adaugare tratament/diagnostic e implicit invizibil, devine vizibil doar cand se logheaza un doctor
             btnAdd.Visible = true ;
+            tbPersonal.IsAccessible = false;
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -49,6 +55,18 @@ namespace Aplicatie_medicala
         private void btnSkip_Click(object sender, EventArgs e)
         {
             dgPacienti.Enabled = true;
+        }
+
+        private void dgPacienti_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.RowIndex != dgPacienti.RowCount - 1) /// verific sa nu fie click pe numele coloanei
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    dgPacienti.Rows[e.RowIndex].Selected = true;
+                    ctxmRefresh.Show(Cursor.Position);
+                }
+            }
         }
 
 

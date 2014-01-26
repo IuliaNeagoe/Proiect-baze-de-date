@@ -24,7 +24,7 @@ namespace Aplicatie_medicala
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Aplicatie f = new Aplicatie();
+            Aplicatie f = new Aplicatie(txbUsername.Text.ToString());
             this.Close();
             f.Show();
         }

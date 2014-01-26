@@ -62,6 +62,16 @@
             this.lblIesi = new System.Windows.Forms.Label();
             this.ctxmRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reimprospatareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txbDiagnostic = new System.Windows.Forms.TextBox();
+            this.txbMedicament = new System.Windows.Forms.TextBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.btnTermina = new System.Windows.Forms.Button();
+            this.btnAddMed = new System.Windows.Forms.Button();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tbPacienti.SuspendLayout();
@@ -69,8 +79,11 @@
             this.tabControl2.SuspendLayout();
             this.tbCauta.SuspendLayout();
             this.tbTratament.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).BeginInit();
+            this.tbPersonal.SuspendLayout();
             this.ctxmRefresh.SuspendLayout();
+            this.tabControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -124,9 +137,15 @@
             // 
             // dgDiagnostic
             // 
+            this.dgDiagnostic.AllowUserToAddRows = false;
+            this.dgDiagnostic.AllowUserToDeleteRows = false;
+            this.dgDiagnostic.AllowUserToResizeRows = false;
+            this.dgDiagnostic.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgDiagnostic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDiagnostic.Location = new System.Drawing.Point(491, 68);
+            this.dgDiagnostic.MultiSelect = false;
             this.dgDiagnostic.Name = "dgDiagnostic";
+            this.dgDiagnostic.ReadOnly = true;
             this.dgDiagnostic.Size = new System.Drawing.Size(406, 227);
             this.dgDiagnostic.TabIndex = 2;
             // 
@@ -353,27 +372,38 @@
             // 
             this.tabPage1.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.btnAddMed);
+            this.tabPage1.Controls.Add(this.btnTermina);
+            this.tabPage1.Controls.Add(this.checkedListBox1);
+            this.tabPage1.Controls.Add(this.txbMedicament);
+            this.tabPage1.Controls.Add(this.txbDiagnostic);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(871, 198);
             this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Diagnostic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgPacienti
             // 
+            this.dgPacienti.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgPacienti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPacienti.Location = new System.Drawing.Point(25, 15);
             this.dgPacienti.Name = "dgPacienti";
             this.dgPacienti.Size = new System.Drawing.Size(406, 280);
             this.dgPacienti.TabIndex = 0;
             this.dgPacienti.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPacienti_CellContentDoubleClick);
+            this.dgPacienti.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPacienti_CellMouseClick);
             // 
             // tbPersonal
             // 
             this.tbPersonal.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tbPersonal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tbPersonal.Controls.Add(this.tabControl3);
             this.tbPersonal.Location = new System.Drawing.Point(4, 22);
             this.tbPersonal.Name = "tbPersonal";
             this.tbPersonal.Padding = new System.Windows.Forms.Padding(3);
@@ -420,6 +450,100 @@
             this.reimprospatareToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.reimprospatareToolStripMenuItem.Text = "Reimprospatare";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(28, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 18);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Diagnostic";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(28, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 18);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Medicament";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(28, 121);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 18);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Mod administrare";
+            // 
+            // txbDiagnostic
+            // 
+            this.txbDiagnostic.Location = new System.Drawing.Point(138, 21);
+            this.txbDiagnostic.Name = "txbDiagnostic";
+            this.txbDiagnostic.Size = new System.Drawing.Size(249, 20);
+            this.txbDiagnostic.TabIndex = 5;
+            // 
+            // txbMedicament
+            // 
+            this.txbMedicament.Location = new System.Drawing.Point(138, 61);
+            this.txbMedicament.Name = "txbMedicament";
+            this.txbMedicament.Size = new System.Drawing.Size(249, 20);
+            this.txbMedicament.TabIndex = 6;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(221, 87);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(166, 94);
+            this.checkedListBox1.TabIndex = 7;
+            // 
+            // btnTermina
+            // 
+            this.btnTermina.Location = new System.Drawing.Point(513, 55);
+            this.btnTermina.Name = "btnTermina";
+            this.btnTermina.Size = new System.Drawing.Size(90, 84);
+            this.btnTermina.TabIndex = 8;
+            this.btnTermina.Text = "Termina";
+            this.btnTermina.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMed
+            // 
+            this.btnAddMed.Location = new System.Drawing.Point(700, 55);
+            this.btnAddMed.Name = "btnAddMed";
+            this.btnAddMed.Size = new System.Drawing.Size(90, 84);
+            this.btnAddMed.TabIndex = 9;
+            this.btnAddMed.Text = "Adauga medicament";
+            this.btnAddMed.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage2);
+            this.tabControl3.Location = new System.Drawing.Point(15, 18);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(399, 516);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(391, 490);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "Cautare";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,8 +569,12 @@
             this.tbCauta.PerformLayout();
             this.tbTratament.ResumeLayout(false);
             this.tbTratament.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).EndInit();
+            this.tbPersonal.ResumeLayout(false);
             this.ctxmRefresh.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +615,15 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ContextMenuStrip ctxmRefresh;
         private System.Windows.Forms.ToolStripMenuItem reimprospatareToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddMed;
+        private System.Windows.Forms.Button btnTermina;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.TextBox txbMedicament;
+        private System.Windows.Forms.TextBox txbDiagnostic;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
