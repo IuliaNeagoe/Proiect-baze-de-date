@@ -56,36 +56,36 @@
             this.cmbDiagnostic = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAddMed = new System.Windows.Forms.Button();
+            this.btnTermina = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.txbMedicament = new System.Windows.Forms.TextBox();
+            this.txbDiagnostic = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.dgPacienti = new System.Windows.Forms.DataGridView();
             this.tbPersonal = new System.Windows.Forms.TabPage();
+            this.lblOperatii = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnCautaPers = new System.Windows.Forms.Button();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.cmbSectiePers = new System.Windows.Forms.ComboBox();
+            this.cmbFunctie = new System.Windows.Forms.ComboBox();
+            this.txbPrenumePers = new System.Windows.Forms.TextBox();
+            this.txbNumePers = new System.Windows.Forms.TextBox();
+            this.dgPersonal = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblIesi = new System.Windows.Forms.Label();
             this.ctxmRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reimprospatareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txbDiagnostic = new System.Windows.Forms.TextBox();
-            this.txbMedicament = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.btnTermina = new System.Windows.Forms.Button();
-            this.btnAddMed = new System.Windows.Forms.Button();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dgPersonal = new System.Windows.Forms.DataGridView();
-            this.txbNumePers = new System.Windows.Forms.TextBox();
-            this.txbPrenumePers = new System.Windows.Forms.TextBox();
-            this.cmbFunctie = new System.Windows.Forms.ComboBox();
-            this.cmbSectiePers = new System.Windows.Forms.ComboBox();
-            this.txbUsername = new System.Windows.Forms.TextBox();
-            this.btnCautaPers = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblOperatii = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tbPacienti.SuspendLayout();
@@ -96,11 +96,11 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).BeginInit();
             this.tbPersonal.SuspendLayout();
-            this.ctxmRefresh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ctxmRefresh.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -405,6 +405,79 @@
             this.tabPage1.Text = "Diagnostic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnAddMed
+            // 
+            this.btnAddMed.Location = new System.Drawing.Point(700, 55);
+            this.btnAddMed.Name = "btnAddMed";
+            this.btnAddMed.Size = new System.Drawing.Size(90, 84);
+            this.btnAddMed.TabIndex = 9;
+            this.btnAddMed.Text = "Adauga medicament";
+            this.btnAddMed.UseVisualStyleBackColor = true;
+            // 
+            // btnTermina
+            // 
+            this.btnTermina.Location = new System.Drawing.Point(513, 55);
+            this.btnTermina.Name = "btnTermina";
+            this.btnTermina.Size = new System.Drawing.Size(90, 84);
+            this.btnTermina.TabIndex = 8;
+            this.btnTermina.Text = "Termina";
+            this.btnTermina.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(221, 87);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(166, 94);
+            this.checkedListBox1.TabIndex = 7;
+            // 
+            // txbMedicament
+            // 
+            this.txbMedicament.Location = new System.Drawing.Point(138, 61);
+            this.txbMedicament.Name = "txbMedicament";
+            this.txbMedicament.Size = new System.Drawing.Size(249, 20);
+            this.txbMedicament.TabIndex = 6;
+            // 
+            // txbDiagnostic
+            // 
+            this.txbDiagnostic.Location = new System.Drawing.Point(138, 21);
+            this.txbDiagnostic.Name = "txbDiagnostic";
+            this.txbDiagnostic.Size = new System.Drawing.Size(249, 20);
+            this.txbDiagnostic.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(28, 121);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 18);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Mod administrare";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(28, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 18);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Medicament";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(28, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 18);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Diagnostic";
+            // 
             // dgPacienti
             // 
             this.dgPacienti.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -430,6 +503,169 @@
             this.tbPersonal.TabIndex = 1;
             this.tbPersonal.Text = "Personal";
             this.tbPersonal.UseVisualStyleBackColor = true;
+            // 
+            // lblOperatii
+            // 
+            this.lblOperatii.AutoSize = true;
+            this.lblOperatii.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOperatii.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblOperatii.Location = new System.Drawing.Point(495, 18);
+            this.lblOperatii.Name = "lblOperatii";
+            this.lblOperatii.Size = new System.Drawing.Size(355, 18);
+            this.lblOperatii.TabIndex = 11;
+            this.lblOperatii.Text = "Operatii asupra bazei de date efectuate de    : \r\n";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(498, 54);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(377, 195);
+            this.dataGridView1.TabIndex = 10;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage2);
+            this.tabControl3.Location = new System.Drawing.Point(15, 18);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(399, 516);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.btnCautaPers);
+            this.tabPage2.Controls.Add(this.txbUsername);
+            this.tabPage2.Controls.Add(this.cmbSectiePers);
+            this.tabPage2.Controls.Add(this.cmbFunctie);
+            this.tabPage2.Controls.Add(this.txbPrenumePers);
+            this.tabPage2.Controls.Add(this.txbNumePers);
+            this.tabPage2.Controls.Add(this.dgPersonal);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(391, 490);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "Cautare";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnCautaPers
+            // 
+            this.btnCautaPers.Location = new System.Drawing.Point(140, 260);
+            this.btnCautaPers.Name = "btnCautaPers";
+            this.btnCautaPers.Size = new System.Drawing.Size(75, 23);
+            this.btnCautaPers.TabIndex = 15;
+            this.btnCautaPers.Text = "Cauta";
+            this.btnCautaPers.UseVisualStyleBackColor = true;
+            this.btnCautaPers.Click += new System.EventHandler(this.btnCautaPers_Click);
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Location = new System.Drawing.Point(126, 223);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(192, 20);
+            this.txbUsername.TabIndex = 14;
+            // 
+            // cmbSectiePers
+            // 
+            this.cmbSectiePers.FormattingEnabled = true;
+            this.cmbSectiePers.Location = new System.Drawing.Point(126, 171);
+            this.cmbSectiePers.Name = "cmbSectiePers";
+            this.cmbSectiePers.Size = new System.Drawing.Size(192, 21);
+            this.cmbSectiePers.TabIndex = 13;
+            // 
+            // cmbFunctie
+            // 
+            this.cmbFunctie.FormattingEnabled = true;
+            this.cmbFunctie.Location = new System.Drawing.Point(126, 119);
+            this.cmbFunctie.Name = "cmbFunctie";
+            this.cmbFunctie.Size = new System.Drawing.Size(192, 21);
+            this.cmbFunctie.TabIndex = 12;
+            // 
+            // txbPrenumePers
+            // 
+            this.txbPrenumePers.Location = new System.Drawing.Point(126, 73);
+            this.txbPrenumePers.Name = "txbPrenumePers";
+            this.txbPrenumePers.Size = new System.Drawing.Size(192, 20);
+            this.txbPrenumePers.TabIndex = 11;
+            // 
+            // txbNumePers
+            // 
+            this.txbNumePers.Location = new System.Drawing.Point(126, 34);
+            this.txbNumePers.Name = "txbNumePers";
+            this.txbNumePers.Size = new System.Drawing.Size(192, 20);
+            this.txbNumePers.TabIndex = 10;
+            // 
+            // dgPersonal
+            // 
+            this.dgPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPersonal.Location = new System.Drawing.Point(9, 289);
+            this.dgPersonal.Name = "dgPersonal";
+            this.dgPersonal.Size = new System.Drawing.Size(355, 195);
+            this.dgPersonal.TabIndex = 9;
+            this.dgPersonal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPersonal_CellMouseClick);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(6, 222);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 18);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Username";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(6, 174);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 18);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Sectie";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(6, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 18);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Functie";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(6, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 18);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Prenume";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(6, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 18);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Nume";
             // 
             // lblUser
             // 
@@ -469,242 +705,6 @@
             this.reimprospatareToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.reimprospatareToolStripMenuItem.Text = "Reimprospatare";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(28, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 18);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Diagnostic";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(28, 60);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 18);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Medicament";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(28, 121);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 18);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Mod administrare";
-            // 
-            // txbDiagnostic
-            // 
-            this.txbDiagnostic.Location = new System.Drawing.Point(138, 21);
-            this.txbDiagnostic.Name = "txbDiagnostic";
-            this.txbDiagnostic.Size = new System.Drawing.Size(249, 20);
-            this.txbDiagnostic.TabIndex = 5;
-            // 
-            // txbMedicament
-            // 
-            this.txbMedicament.Location = new System.Drawing.Point(138, 61);
-            this.txbMedicament.Name = "txbMedicament";
-            this.txbMedicament.Size = new System.Drawing.Size(249, 20);
-            this.txbMedicament.TabIndex = 6;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(221, 87);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(166, 94);
-            this.checkedListBox1.TabIndex = 7;
-            // 
-            // btnTermina
-            // 
-            this.btnTermina.Location = new System.Drawing.Point(513, 55);
-            this.btnTermina.Name = "btnTermina";
-            this.btnTermina.Size = new System.Drawing.Size(90, 84);
-            this.btnTermina.TabIndex = 8;
-            this.btnTermina.Text = "Termina";
-            this.btnTermina.UseVisualStyleBackColor = true;
-            // 
-            // btnAddMed
-            // 
-            this.btnAddMed.Location = new System.Drawing.Point(700, 55);
-            this.btnAddMed.Name = "btnAddMed";
-            this.btnAddMed.Size = new System.Drawing.Size(90, 84);
-            this.btnAddMed.TabIndex = 9;
-            this.btnAddMed.Text = "Adauga medicament";
-            this.btnAddMed.UseVisualStyleBackColor = true;
-            // 
-            // tabControl3
-            // 
-            this.tabControl3.Controls.Add(this.tabPage2);
-            this.tabControl3.Location = new System.Drawing.Point(15, 18);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(399, 516);
-            this.tabControl3.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
-            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.btnCautaPers);
-            this.tabPage2.Controls.Add(this.txbUsername);
-            this.tabPage2.Controls.Add(this.cmbSectiePers);
-            this.tabPage2.Controls.Add(this.cmbFunctie);
-            this.tabPage2.Controls.Add(this.txbPrenumePers);
-            this.tabPage2.Controls.Add(this.txbNumePers);
-            this.tabPage2.Controls.Add(this.dgPersonal);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(391, 490);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "Cautare";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(6, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 18);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Nume";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(6, 73);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 18);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Prenume";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(6, 122);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 18);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Functie";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(6, 174);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 18);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Sectie";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(6, 222);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 18);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Username";
-            // 
-            // dgPersonal
-            // 
-            this.dgPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPersonal.Location = new System.Drawing.Point(9, 289);
-            this.dgPersonal.Name = "dgPersonal";
-            this.dgPersonal.Size = new System.Drawing.Size(355, 195);
-            this.dgPersonal.TabIndex = 9;
-            this.dgPersonal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPersonal_CellMouseClick);
-            // 
-            // txbNumePers
-            // 
-            this.txbNumePers.Location = new System.Drawing.Point(126, 34);
-            this.txbNumePers.Name = "txbNumePers";
-            this.txbNumePers.Size = new System.Drawing.Size(192, 20);
-            this.txbNumePers.TabIndex = 10;
-            // 
-            // txbPrenumePers
-            // 
-            this.txbPrenumePers.Location = new System.Drawing.Point(126, 73);
-            this.txbPrenumePers.Name = "txbPrenumePers";
-            this.txbPrenumePers.Size = new System.Drawing.Size(192, 20);
-            this.txbPrenumePers.TabIndex = 11;
-            // 
-            // cmbFunctie
-            // 
-            this.cmbFunctie.FormattingEnabled = true;
-            this.cmbFunctie.Location = new System.Drawing.Point(126, 119);
-            this.cmbFunctie.Name = "cmbFunctie";
-            this.cmbFunctie.Size = new System.Drawing.Size(192, 21);
-            this.cmbFunctie.TabIndex = 12;
-            // 
-            // cmbSectiePers
-            // 
-            this.cmbSectiePers.FormattingEnabled = true;
-            this.cmbSectiePers.Location = new System.Drawing.Point(126, 171);
-            this.cmbSectiePers.Name = "cmbSectiePers";
-            this.cmbSectiePers.Size = new System.Drawing.Size(192, 21);
-            this.cmbSectiePers.TabIndex = 13;
-            // 
-            // txbUsername
-            // 
-            this.txbUsername.Location = new System.Drawing.Point(126, 223);
-            this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(192, 20);
-            this.txbUsername.TabIndex = 14;
-            // 
-            // btnCautaPers
-            // 
-            this.btnCautaPers.Location = new System.Drawing.Point(140, 260);
-            this.btnCautaPers.Name = "btnCautaPers";
-            this.btnCautaPers.Size = new System.Drawing.Size(75, 23);
-            this.btnCautaPers.TabIndex = 15;
-            this.btnCautaPers.Text = "Cauta";
-            this.btnCautaPers.UseVisualStyleBackColor = true;
-            this.btnCautaPers.Click += new System.EventHandler(this.btnCautaPers_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(498, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(377, 195);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // lblOperatii
-            // 
-            this.lblOperatii.AutoSize = true;
-            this.lblOperatii.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOperatii.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblOperatii.Location = new System.Drawing.Point(495, 18);
-            this.lblOperatii.Name = "lblOperatii";
-            this.lblOperatii.Size = new System.Drawing.Size(355, 18);
-            this.lblOperatii.TabIndex = 11;
-            this.lblOperatii.Text = "Operatii asupra bazei de date efectuate de    : \r\n";
-            // 
             // Aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,6 +720,7 @@
             this.Name = "Aplicatie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aplicatie";
+            this.Load += new System.EventHandler(this.Aplicatie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tbPacienti.ResumeLayout(false);
@@ -735,12 +736,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).EndInit();
             this.tbPersonal.ResumeLayout(false);
             this.tbPersonal.PerformLayout();
-            this.ctxmRefresh.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ctxmRefresh.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

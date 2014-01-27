@@ -82,6 +82,11 @@ namespace Aplicatie_medicala
 
         }
 
+        private void Aplicatie_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

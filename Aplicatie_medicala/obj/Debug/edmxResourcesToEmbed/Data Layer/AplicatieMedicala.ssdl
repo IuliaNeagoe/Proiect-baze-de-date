@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Aplicatie_medicalaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Aplicatie_medicalaModelStoreContainer">
+    <EntitySet Name="Administrare" EntityType="Aplicatie_medicalaModel.Store.Administrare" store:Type="Tables" store:Schema="dbo" store:Name="Administrare">
+      <DefiningQuery>SELECT 
+      [Administrare].[IDTratament] AS [IDTratament], 
+      [Administrare].[Data_ora] AS [Data_ora], 
+      [Administrare].[CNP_personal] AS [CNP_personal]
+      FROM [dbo].[Administrare] AS [Administrare]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Categ_Perm" EntityType="Aplicatie_medicalaModel.Store.Categ_Perm" store:Type="Tables" store:Schema="dbo" store:Name="Categ_Perm">
+      <DefiningQuery>SELECT 
+      [Categ_Perm].[IDCateg] AS [IDCateg], 
+      [Categ_Perm].[IDPerm] AS [IDPerm]
+      FROM [dbo].[Categ_Perm] AS [Categ_Perm]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Categorie" EntityType="Aplicatie_medicalaModel.Store.Categorie" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Diagnostic" EntityType="Aplicatie_medicalaModel.Store.Diagnostic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Internari_Externari" EntityType="Aplicatie_medicalaModel.Store.Internari_Externari" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pacienti" EntityType="Aplicatie_medicalaModel.Store.Pacienti" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permisiuni" EntityType="Aplicatie_medicalaModel.Store.Permisiuni" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personal" EntityType="Aplicatie_medicalaModel.Store.Personal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sectii" EntityType="Aplicatie_medicalaModel.Store.Sectii" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Aplicatie_medicalaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tratament" EntityType="Aplicatie_medicalaModel.Store.Tratament" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Administare_Tratament" Association="Aplicatie_medicalaModel.Store.FK_Administare_Tratament">
+      <End Role="Tratament" EntitySet="Tratament" />
+      <End Role="Administrare" EntitySet="Administrare" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categ_Perm_Categorie" Association="Aplicatie_medicalaModel.Store.FK_Categ_Perm_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Categ_Perm" EntitySet="Categ_Perm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categ_Perm_Permisiuni" Association="Aplicatie_medicalaModel.Store.FK_Categ_Perm_Permisiuni">
+      <End Role="Permisiuni" EntitySet="Permisiuni" />
+      <End Role="Categ_Perm" EntitySet="Categ_Perm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnostic_Internari_Externari" Association="Aplicatie_medicalaModel.Store.FK_Diagnostic_Internari_Externari">
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+      <End Role="Diagnostic" EntitySet="Diagnostic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internari_Externari_Pacienti" Association="Aplicatie_medicalaModel.Store.FK_Internari_Externari_Pacienti">
+      <End Role="Pacienti" EntitySet="Pacienti" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internari_Externari_Personal" Association="Aplicatie_medicalaModel.Store.FK_Internari_Externari_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Categorie" Association="Aplicatie_medicalaModel.Store.FK_Personal_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Sectii" Association="Aplicatie_medicalaModel.Store.FK_Personal_Sectii">
+      <End Role="Sectii" EntitySet="Sectii" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tratament_Diagnostic" Association="Aplicatie_medicalaModel.Store.FK_Tratament_Diagnostic">
+      <End Role="Diagnostic" EntitySet="Diagnostic" />
+      <End Role="Tratament" EntitySet="Tratament" />
+    </AssociationSet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Aplicatie_medicala.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Administrare">
+    <Key>
+      <PropertyRef Name="IDTratament" />
+      <PropertyRef Name="Data_ora" />
+      <PropertyRef Name="CNP_personal" />
+    </Key>
+    <Property Name="IDTratament" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Data_ora" Type="datetime" Nullable="false" />
+    <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Aplicatie_medicala.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Categ_Perm">
+    <Key>
+      <PropertyRef Name="IDCateg" />
+      <PropertyRef Name="IDPerm" />
+    </Key>
+    <Property Name="IDCateg" Type="int" Nullable="false" />
+    <Property Name="IDPerm" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IDCateg" />
+    </Key>
+    <Property Name="IDCateg" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Diagnostic">
+    <Key>
+      <PropertyRef Name="IDDiagnostic" />
+    </Key>
+    <Property Name="IDDiagnostic" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDInreg" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Internari_Externari">
+    <Key>
+      <PropertyRef Name="IDInreg" />
+    </Key>
+    <Property Name="IDInreg" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CNP" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="Data_internare" Type="date" Nullable="false" />
+    <Property Name="Data_externare" Type="date" />
+    <Property Name="CNP_Medic" Type="nchar" Nullable="false" MaxLength="13" />
+  </EntityType>
+  <EntityType Name="Pacienti">
+    <Key>
+      <PropertyRef Name="CNP" />
+    </Key>
+    <Property Name="CNP" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Prenume" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Varsta" Type="int" />
+    <Property Name="Adresa" Type="nchar" MaxLength="100" />
+    <Property Name="Telefon" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="nchar" MaxLength="50" />
+    <Property Name="Internat" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisiuni">
+    <Key>
+      <PropertyRef Name="IDPerm" />
+    </Key>
+    <Property Name="IDPerm" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="CNP" />
+    </Key>
+    <Property Name="CNP" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="IDCateg" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Prenume" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Adresa" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="Telefon" Type="nchar" MaxLength="10" />
+    <Property Name="IDSectie" Type="int" Nullable="false" />
+    <Property Name="Data_angajare" Type="date" Nullable="false" />
+    <Property Name="Data_incheiere" Type="date" />
+    <Property Name="Salariu" Type="float" Nullable="false" />
+    <Property Name="Parola" Type="varbinary" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Sectii">
+    <Key>
+      <PropertyRef Name="IDSectie" />
+    </Key>
+    <Property Name="IDSectie" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tratament">
+    <Key>
+      <PropertyRef Name="IDTratament" />
+    </Key>
+    <Property Name="IDTratament" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDDiagnostic" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Medicament" Type="char" Nullable="false" MaxLength="50" />
+    <Property Name="Administare" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Administare_Tratament">
+    <End Role="Tratament" Type="Aplicatie_medicalaModel.Store.Tratament" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrare" Type="Aplicatie_medicalaModel.Store.Administrare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratament">
+        <PropertyRef Name="IDTratament" />
+      </Principal>
+      <Dependent Role="Administrare">
+        <PropertyRef Name="IDTratament" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categ_Perm_Categorie">
+    <End Role="Categorie" Type="Aplicatie_medicalaModel.Store.Categorie" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Categ_Perm" Type="Aplicatie_medicalaModel.Store.Categ_Perm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IDCateg" />
+      </Principal>
+      <Dependent Role="Categ_Perm">
+        <PropertyRef Name="IDCateg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categ_Perm_Permisiuni">
+    <End Role="Permisiuni" Type="Aplicatie_medicalaModel.Store.Permisiuni" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Categ_Perm" Type="Aplicatie_medicalaModel.Store.Categ_Perm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permisiuni">
+        <PropertyRef Name="IDPerm" />
+      </Principal>
+      <Dependent Role="Categ_Perm">
+        <PropertyRef Name="IDPerm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnostic_Internari_Externari">
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Store.Internari_Externari" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Diagnostic" Type="Aplicatie_medicalaModel.Store.Diagnostic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Internari_Externari">
+        <PropertyRef Name="IDInreg" />
+      </Principal>
+      <Dependent Role="Diagnostic">
+        <PropertyRef Name="IDInreg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internari_Externari_Pacienti">
+    <End Role="Pacienti" Type="Aplicatie_medicalaModel.Store.Pacienti" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Store.Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacienti">
+        <PropertyRef Name="CNP" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="CNP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internari_Externari_Personal">
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Store.Personal" Multiplicity="1" />
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Store.Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="CNP" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="CNP_Medic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Categorie">
+    <End Role="Categorie" Type="Aplicatie_medicalaModel.Store.Categorie" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Store.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IDCateg" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="IDCateg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Sectii">
+    <End Role="Sectii" Type="Aplicatie_medicalaModel.Store.Sectii" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Store.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sectii">
+        <PropertyRef Name="IDSectie" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="IDSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tratament_Diagnostic">
+    <End Role="Diagnostic" Type="Aplicatie_medicalaModel.Store.Diagnostic" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tratament" Type="Aplicatie_medicalaModel.Store.Tratament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnostic">
+        <PropertyRef Name="IDDiagnostic" />
+      </Principal>
+      <Dependent Role="Tratament">
+        <PropertyRef Name="IDDiagnostic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="compare" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <CommandText>
+            SELECT [dbo].[compare] (@pass,@encrpass)
+          </CommandText>
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="encrpass" Type="varbinary" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

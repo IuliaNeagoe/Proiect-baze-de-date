@@ -12,6 +12,7 @@ namespace Aplicatie_medicala
 {
     public partial class Login : Form
     {
+        public BusinessLayer objbs = new BusinessLayer();
         public Login()
         {
             InitializeComponent();
@@ -24,9 +25,19 @@ namespace Aplicatie_medicala
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Aplicatie f = new Aplicatie(txbUsername.Text.ToString());
-            this.Close();
-            f.Show();
+            if (objbs.calllog(txbUsername.Text, txbPassword.Text) == true)
+            {
+                Aplicatie f = new Aplicatie(txbUsername.Text.ToString());
+                this.Close();
+                f.Show();
+            }
+            else
+                MessageBox.Show("Eroare de logare! Mai incercati!");
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

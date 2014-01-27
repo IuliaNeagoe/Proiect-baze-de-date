@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Aplicatie_medicalaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Aplicatie_medicalaContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrares" EntityType="Aplicatie_medicalaModel.Administrare" />
+    <EntitySet Name="Categories" EntityType="Aplicatie_medicalaModel.Categorie" />
+    <EntitySet Name="Diagnostics" EntityType="Aplicatie_medicalaModel.Diagnostic" />
+    <EntitySet Name="Internari_Externari" EntityType="Aplicatie_medicalaModel.Internari_Externari" />
+    <EntitySet Name="Pacientis" EntityType="Aplicatie_medicalaModel.Pacienti" />
+    <EntitySet Name="Permisiunis" EntityType="Aplicatie_medicalaModel.Permisiuni" />
+    <EntitySet Name="Personals" EntityType="Aplicatie_medicalaModel.Personal" />
+    <EntitySet Name="Sectiis" EntityType="Aplicatie_medicalaModel.Sectii" />
+    <EntitySet Name="sysdiagrams" EntityType="Aplicatie_medicalaModel.sysdiagram" />
+    <EntitySet Name="Trataments" EntityType="Aplicatie_medicalaModel.Tratament" />
+    <AssociationSet Name="FK_Administare_Tratament" Association="Aplicatie_medicalaModel.FK_Administare_Tratament">
+      <End Role="Tratament" EntitySet="Trataments" />
+      <End Role="Administrare" EntitySet="Administrares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Categorie" Association="Aplicatie_medicalaModel.FK_Personal_Categorie">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Personal" EntitySet="Personals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnostic_Internari_Externari" Association="Aplicatie_medicalaModel.FK_Diagnostic_Internari_Externari">
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+      <End Role="Diagnostic" EntitySet="Diagnostics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tratament_Diagnostic" Association="Aplicatie_medicalaModel.FK_Tratament_Diagnostic">
+      <End Role="Diagnostic" EntitySet="Diagnostics" />
+      <End Role="Tratament" EntitySet="Trataments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internari_Externari_Pacienti" Association="Aplicatie_medicalaModel.FK_Internari_Externari_Pacienti">
+      <End Role="Pacienti" EntitySet="Pacientis" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internari_Externari_Personal" Association="Aplicatie_medicalaModel.FK_Internari_Externari_Personal">
+      <End Role="Personal" EntitySet="Personals" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Sectii" Association="Aplicatie_medicalaModel.FK_Personal_Sectii">
+      <End Role="Sectii" EntitySet="Sectiis" />
+      <End Role="Personal" EntitySet="Personals" />
+    </AssociationSet>
+    <AssociationSet Name="Categ_Perm" Association="Aplicatie_medicalaModel.Categ_Perm">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Permisiuni" EntitySet="Permisiunis" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Aplicatie_medicalaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Aplicatie_medicalaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="compare" ReturnType="Collection(Int32)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="compare1" ReturnType="Collection(Int32)">
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="encrpass" Mode="In" Type="Binary" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Administrare">
+    <Key>
+      <PropertyRef Name="IDTratament" />
+      <PropertyRef Name="Data_ora" />
+      <PropertyRef Name="CNP_personal" />
+    </Key>
+    <Property Name="IDTratament" Type="Guid" Nullable="false" />
+    <Property Name="Data_ora" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNP_personal" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Tratament" Relationship="Aplicatie_medicalaModel.FK_Administare_Tratament" FromRole="Administrare" ToRole="Tratament" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IDCateg" />
+    </Key>
+    <Property Name="IDCateg" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Personals" Relationship="Aplicatie_medicalaModel.FK_Personal_Categorie" FromRole="Categorie" ToRole="Personal" />
+    <NavigationProperty Name="Permisiunis" Relationship="Aplicatie_medicalaModel.Categ_Perm" FromRole="Categorie" ToRole="Permisiuni" />
+  </EntityType>
+  <EntityType Name="Diagnostic">
+    <Key>
+      <PropertyRef Name="IDDiagnostic" />
+    </Key>
+    <Property Name="IDDiagnostic" Type="Guid" Nullable="false" />
+    <Property Name="IDInreg" Type="Guid" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Internari_Externari" Relationship="Aplicatie_medicalaModel.FK_Diagnostic_Internari_Externari" FromRole="Diagnostic" ToRole="Internari_Externari" />
+    <NavigationProperty Name="Trataments" Relationship="Aplicatie_medicalaModel.FK_Tratament_Diagnostic" FromRole="Diagnostic" ToRole="Tratament" />
+  </EntityType>
+  <EntityType Name="Internari_Externari">
+    <Key>
+      <PropertyRef Name="IDInreg" />
+    </Key>
+    <Property Name="IDInreg" Type="Guid" Nullable="false" />
+    <Property Name="CNP" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
+    <Property Name="Data_internare" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_externare" Type="DateTime" Precision="0" />
+    <Property Name="CNP_Medic" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Diagnostics" Relationship="Aplicatie_medicalaModel.FK_Diagnostic_Internari_Externari" FromRole="Internari_Externari" ToRole="Diagnostic" />
+    <NavigationProperty Name="Pacienti" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Pacienti" FromRole="Internari_Externari" ToRole="Pacienti" />
+    <NavigationProperty Name="Personal" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Personal" FromRole="Internari_Externari" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Pacienti">
+    <Key>
+      <PropertyRef Name="CNP" />
+    </Key>
+    <Property Name="CNP" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Varsta" Type="Int32" />
+    <Property Name="Adresa" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+    <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Internat" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Internari_Externari" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Pacienti" FromRole="Pacienti" ToRole="Internari_Externari" />
+  </EntityType>
+  <EntityType Name="Permisiuni">
+    <Key>
+      <PropertyRef Name="IDPerm" />
+    </Key>
+    <Property Name="IDPerm" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Categories" Relationship="Aplicatie_medicalaModel.Categ_Perm" FromRole="Permisiuni" ToRole="Categorie" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="CNP" />
+    </Key>
+    <Property Name="CNP" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
+    <Property Name="IDCateg" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Adresa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+    <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="IDSectie" Type="Int32" Nullable="false" />
+    <Property Name="Data_angajare" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_incheiere" Type="DateTime" Precision="0" />
+    <Property Name="Salariu" Type="Double" Nullable="false" />
+    <Property Name="Parola" Type="Binary" Nullable="false" MaxLength="256" FixedLength="false" />
+    <NavigationProperty Name="Categorie" Relationship="Aplicatie_medicalaModel.FK_Personal_Categorie" FromRole="Personal" ToRole="Categorie" />
+    <NavigationProperty Name="Internari_Externari" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Personal" FromRole="Personal" ToRole="Internari_Externari" />
+    <NavigationProperty Name="Sectii" Relationship="Aplicatie_medicalaModel.FK_Personal_Sectii" FromRole="Personal" ToRole="Sectii" />
+  </EntityType>
+  <EntityType Name="Sectii">
+    <Key>
+      <PropertyRef Name="IDSectie" />
+    </Key>
+    <Property Name="IDSectie" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Personals" Relationship="Aplicatie_medicalaModel.FK_Personal_Sectii" FromRole="Sectii" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tratament">
+    <Key>
+      <PropertyRef Name="IDTratament" />
+    </Key>
+    <Property Name="IDTratament" Type="Guid" Nullable="false" />
+    <Property Name="IDDiagnostic" Type="Guid" Nullable="false" />
+    <Property Name="Medicament" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+    <Property Name="Administare" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Administrares" Relationship="Aplicatie_medicalaModel.FK_Administare_Tratament" FromRole="Tratament" ToRole="Administrare" />
+    <NavigationProperty Name="Diagnostic" Relationship="Aplicatie_medicalaModel.FK_Tratament_Diagnostic" FromRole="Tratament" ToRole="Diagnostic" />
+  </EntityType>
+  <Association Name="FK_Administare_Tratament">
+    <End Role="Tratament" Type="Aplicatie_medicalaModel.Tratament" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrare" Type="Aplicatie_medicalaModel.Administrare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratament">
+        <PropertyRef Name="IDTratament" />
+      </Principal>
+      <Dependent Role="Administrare">
+        <PropertyRef Name="IDTratament" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Categorie">
+    <End Role="Categorie" Type="Aplicatie_medicalaModel.Categorie" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IDCateg" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="IDCateg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnostic_Internari_Externari">
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Internari_Externari" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Diagnostic" Type="Aplicatie_medicalaModel.Diagnostic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Internari_Externari">
+        <PropertyRef Name="IDInreg" />
+      </Principal>
+      <Dependent Role="Diagnostic">
+        <PropertyRef Name="IDInreg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tratament_Diagnostic">
+    <End Role="Diagnostic" Type="Aplicatie_medicalaModel.Diagnostic" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tratament" Type="Aplicatie_medicalaModel.Tratament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnostic">
+        <PropertyRef Name="IDDiagnostic" />
+      </Principal>
+      <Dependent Role="Tratament">
+        <PropertyRef Name="IDDiagnostic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internari_Externari_Pacienti">
+    <End Role="Pacienti" Type="Aplicatie_medicalaModel.Pacienti" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacienti">
+        <PropertyRef Name="CNP" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="CNP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internari_Externari_Personal">
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Personal" Multiplicity="1" />
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="CNP" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="CNP_Medic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Sectii">
+    <End Role="Sectii" Type="Aplicatie_medicalaModel.Sectii" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personal" Type="Aplicatie_medicalaModel.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sectii">
+        <PropertyRef Name="IDSectie" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="IDSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Categ_Perm">
+    <End Role="Categorie" Type="Aplicatie_medicalaModel.Categorie" Multiplicity="*" />
+    <End Role="Permisiuni" Type="Aplicatie_medicalaModel.Permisiuni" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -47,8 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +66,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Layer\BusinessLayer.cs" />
+    <Compile Include="Data Layer\Administrare.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\AplicatieMedicala.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AplicatieMedicala.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\AplicatieMedicala.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\AplicatieMedicala.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AplicatieMedicala.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Categorie.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\DataLayer.cs" />
+    <Compile Include="Data Layer\Diagnostic.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Internari_Externari.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Pacienti.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Permisiuni.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Personal.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Sectii.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\sp_helpdiagrams_Result.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\sysdiagram.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data Layer\Tratament.cs">
+      <DependentUpon>AplicatieMedicala.tt</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Layer\Aplicatie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +149,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Data Layer\AplicatieMedicala.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AplicatieMedicala.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data Layer\AplicatieMedicala.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AplicatieMedicala.edmx</DependentUpon>
+      <LastGenOutput>AplicatieMedicala.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Data Layer\AplicatieMedicala.edmx.diagram">
+      <DependentUpon>AplicatieMedicala.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data Layer\AplicatieMedicala.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AplicatieMedicala.edmx</DependentUpon>
+      <LastGenOutput>AplicatieMedicala.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,10 +181,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business Layer\" />
-    <Folder Include="Data Layer\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\descărcare.jpg" />
   </ItemGroup>
@@ -131,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,3 +16,13 @@ C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\De
 C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Login.resources
 C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Properties.Resources.resources
 C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe.config
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.pdb
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csprojResolveAssemblyReference.cache
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Aplicatie.resources
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Login.resources
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Properties.Resources.resources
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.dll
+C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.xml
