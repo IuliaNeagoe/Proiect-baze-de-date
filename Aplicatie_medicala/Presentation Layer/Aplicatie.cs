@@ -12,15 +12,36 @@ namespace Aplicatie_medicala
 {
     public partial class Aplicatie : Form
     {
+        public BusinessLayer objbs = new BusinessLayer();
+        public string cnp;
         public Aplicatie()
         {
            
         }
-        public Aplicatie(string user)
+        public Aplicatie(string user, string cnp)
         {
             InitializeComponent();
             initComp();
             lblUser.Text = "Buna ziua, " + user;
+            this.cnp = cnp;
+
+            //initializare lista medici
+
+            foreach (var medic in objbs.get_ListaMedici())
+            {
+                cmbDoctor.Items.Add(medic);
+            }
+
+            //initializare lista sectii
+
+            foreach (var sectie in objbs.get_ListaSectii())
+            {
+                cmbSectie.Items.Add(sectie);
+            }
+
+            //incarca lista cu pacientii de pe sectia user-ului in dgPacienti
+
+            dgPacienti.DataSource = objbs.get_Pacienti(cnp);
         }
 
         private void initComp()

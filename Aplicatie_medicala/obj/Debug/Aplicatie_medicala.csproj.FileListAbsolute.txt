@@ -26,3 +26,13 @@ C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debu
 C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache
 C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.dll
 C:\Users\Diana\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.xml
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe.config
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.exe
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.pdb
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csprojResolveAssemblyReference.cache
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Aplicatie.resources
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Login.resources
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.Properties.Resources.resources
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.dll
+C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.xml

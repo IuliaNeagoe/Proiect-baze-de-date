@@ -141,5 +141,124 @@ namespace Aplicatie_medicala.Data_Layer
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<Nullable<int>> compare(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("compare", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int insert_Personal(string cnp, string nume, string prenume, string tel, string adr, Nullable<System.DateTime> dataa, Nullable<System.DateTime> datai, string parola, Nullable<int> idcat, Nullable<int> idsec, Nullable<double> sal)
+        {
+            var cnpParameter = cnp != null ?
+                new ObjectParameter("cnp", cnp) :
+                new ObjectParameter("cnp", typeof(string));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("prenume", prenume) :
+                new ObjectParameter("prenume", typeof(string));
+    
+            var telParameter = tel != null ?
+                new ObjectParameter("tel", tel) :
+                new ObjectParameter("tel", typeof(string));
+    
+            var adrParameter = adr != null ?
+                new ObjectParameter("adr", adr) :
+                new ObjectParameter("adr", typeof(string));
+    
+            var dataaParameter = dataa.HasValue ?
+                new ObjectParameter("dataa", dataa) :
+                new ObjectParameter("dataa", typeof(System.DateTime));
+    
+            var dataiParameter = datai.HasValue ?
+                new ObjectParameter("datai", datai) :
+                new ObjectParameter("datai", typeof(System.DateTime));
+    
+            var parolaParameter = parola != null ?
+                new ObjectParameter("parola", parola) :
+                new ObjectParameter("parola", typeof(string));
+    
+            var idcatParameter = idcat.HasValue ?
+                new ObjectParameter("idcat", idcat) :
+                new ObjectParameter("idcat", typeof(int));
+    
+            var idsecParameter = idsec.HasValue ?
+                new ObjectParameter("idsec", idsec) :
+                new ObjectParameter("idsec", typeof(int));
+    
+            var salParameter = sal.HasValue ?
+                new ObjectParameter("sal", sal) :
+                new ObjectParameter("sal", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_Personal", cnpParameter, numeParameter, prenumeParameter, telParameter, adrParameter, dataaParameter, dataiParameter, parolaParameter, idcatParameter, idsecParameter, salParameter);
+        }
+    
+        public virtual int insertPersonal(string cnp, string nume, string prenume, string tel, string adr, Nullable<System.DateTime> dataa, Nullable<System.DateTime> datai, string parola, Nullable<int> idcat, Nullable<int> idsec, Nullable<double> sal)
+        {
+            var cnpParameter = cnp != null ?
+                new ObjectParameter("cnp", cnp) :
+                new ObjectParameter("cnp", typeof(string));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("prenume", prenume) :
+                new ObjectParameter("prenume", typeof(string));
+    
+            var telParameter = tel != null ?
+                new ObjectParameter("tel", tel) :
+                new ObjectParameter("tel", typeof(string));
+    
+            var adrParameter = adr != null ?
+                new ObjectParameter("adr", adr) :
+                new ObjectParameter("adr", typeof(string));
+    
+            var dataaParameter = dataa.HasValue ?
+                new ObjectParameter("dataa", dataa) :
+                new ObjectParameter("dataa", typeof(System.DateTime));
+    
+            var dataiParameter = datai.HasValue ?
+                new ObjectParameter("datai", datai) :
+                new ObjectParameter("datai", typeof(System.DateTime));
+    
+            var parolaParameter = parola != null ?
+                new ObjectParameter("parola", parola) :
+                new ObjectParameter("parola", typeof(string));
+    
+            var idcatParameter = idcat.HasValue ?
+                new ObjectParameter("idcat", idcat) :
+                new ObjectParameter("idcat", typeof(int));
+    
+            var idsecParameter = idsec.HasValue ?
+                new ObjectParameter("idsec", idsec) :
+                new ObjectParameter("idsec", typeof(int));
+    
+            var salParameter = sal.HasValue ?
+                new ObjectParameter("sal", sal) :
+                new ObjectParameter("sal", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertPersonal", cnpParameter, numeParameter, prenumeParameter, telParameter, adrParameter, dataaParameter, dataiParameter, parolaParameter, idcatParameter, idsecParameter, salParameter);
+        }
     }
 }

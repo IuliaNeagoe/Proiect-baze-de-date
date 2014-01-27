@@ -30,6 +30,7 @@
     <EntitySetMapping Name="Internari_Externari">
       <EntityTypeMapping TypeName="Aplicatie_medicalaModel.Internari_Externari">
         <MappingFragment StoreEntitySet="Internari_Externari">
+          <ScalarProperty Name="IDSectie" ColumnName="IDSectie" />
           <ScalarProperty Name="IDInreg" ColumnName="IDInreg" />
           <ScalarProperty Name="CNP" ColumnName="CNP" />
           <ScalarProperty Name="Data_internare" ColumnName="Data_internare" />
@@ -139,6 +140,7 @@
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Aplicatie_medicalaModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Aplicatie_medicalaModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="compare" FunctionName="Aplicatie_medicalaModel.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="compare1" FunctionName="Aplicatie_medicalaModel.Store.compare" />
+    <FunctionImportMapping FunctionImportName="insert_Personal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
+    <FunctionImportMapping FunctionImportName="insertPersonal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
   </EntityContainerMapping>
 </Mapping>

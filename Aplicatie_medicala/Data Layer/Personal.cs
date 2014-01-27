@@ -28,7 +28,7 @@ namespace Aplicatie_medicala.Data_Layer
         public int IDSectie { get; set; }
         public System.DateTime Data_angajare { get; set; }
         public Nullable<System.DateTime> Data_incheiere { get; set; }
-        public double Salariu { get; set; }
+        public Nullable<double> Salariu { get; set; }
         public byte[] Parola { get; set; }
     
         public virtual Categorie Categorie { get; set; }

@@ -47,6 +47,10 @@
       <End Role="Personal" EntitySet="Personal" />
       <End Role="Internari_Externari" EntitySet="Internari_Externari" />
     </AssociationSet>
+    <AssociationSet Name="FK_Internari_Externari_Sectii" Association="Aplicatie_medicalaModel.Store.FK_Internari_Externari_Sectii">
+      <End Role="Sectii" EntitySet="Sectii" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
     <AssociationSet Name="FK_Personal_Categorie" Association="Aplicatie_medicalaModel.Store.FK_Personal_Categorie">
       <End Role="Categorie" EntitySet="Categorie" />
       <End Role="Personal" EntitySet="Personal" />
@@ -61,7 +65,7 @@
     </AssociationSet>
   </EntityContainer>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'Aplicatie_medicala.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Administrare">
     <Key>
@@ -74,7 +78,7 @@
     <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'Aplicatie_medicala.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Categ_Perm">
     <Key>
@@ -108,6 +112,7 @@
     <Property Name="Data_internare" Type="date" Nullable="false" />
     <Property Name="Data_externare" Type="date" />
     <Property Name="CNP_Medic" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="IDSectie" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pacienti">
     <Key>
@@ -137,12 +142,12 @@
     <Property Name="IDCateg" Type="int" Nullable="false" />
     <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
     <Property Name="Prenume" Type="nchar" Nullable="false" MaxLength="50" />
-    <Property Name="Adresa" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="Adresa" Type="nchar" MaxLength="100" />
     <Property Name="Telefon" Type="nchar" MaxLength="10" />
     <Property Name="IDSectie" Type="int" Nullable="false" />
     <Property Name="Data_angajare" Type="date" Nullable="false" />
     <Property Name="Data_incheiere" Type="date" />
-    <Property Name="Salariu" Type="float" Nullable="false" />
+    <Property Name="Salariu" Type="float" />
     <Property Name="Parola" Type="varbinary" Nullable="false" MaxLength="256" />
   </EntityType>
   <EntityType Name="Sectii">
@@ -253,6 +258,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Internari_Externari_Sectii">
+    <End Role="Sectii" Type="Aplicatie_medicalaModel.Store.Sectii" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Internari_Externari" Type="Aplicatie_medicalaModel.Store.Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sectii">
+        <PropertyRef Name="IDSectie" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="IDSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Personal_Categorie">
     <End Role="Categorie" Type="Aplicatie_medicalaModel.Store.Categorie" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -295,14 +314,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="compare" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <CommandText>
-            SELECT [dbo].[compare] (@pass,@encrpass)
-          </CommandText>
+  <Function Name="compare" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="pass" Type="nvarchar" Mode="In" />
     <Parameter Name="encrpass" Type="varbinary" Mode="In" />
   </Function>
   <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="insert_Personal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cnp" Type="char" Mode="In" />
+    <Parameter Name="nume" Type="char" Mode="In" />
+    <Parameter Name="prenume" Type="char" Mode="In" />
+    <Parameter Name="tel" Type="char" Mode="In" />
+    <Parameter Name="adr" Type="char" Mode="In" />
+    <Parameter Name="dataa" Type="date" Mode="In" />
+    <Parameter Name="datai" Type="date" Mode="In" />
+    <Parameter Name="parola" Type="char" Mode="In" />
+    <Parameter Name="idcat" Type="int" Mode="In" />
+    <Parameter Name="idsec" Type="int" Mode="In" />
+    <Parameter Name="sal" Type="float" Mode="In" />
+  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />

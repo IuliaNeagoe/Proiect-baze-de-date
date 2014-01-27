@@ -17,11 +17,13 @@ namespace Aplicatie_medicala.Data_Layer
         public Sectii()
         {
             this.Personals = new HashSet<Personal>();
+            this.Internari_Externari = new HashSet<Internari_Externari>();
         }
     
         public int IDSectie { get; set; }
         public string Nume { get; set; }
     
         public virtual ICollection<Personal> Personals { get; set; }
+        public virtual ICollection<Internari_Externari> Internari_Externari { get; set; }
     }
 }

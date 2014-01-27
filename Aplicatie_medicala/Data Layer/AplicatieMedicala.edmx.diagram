@@ -23,6 +23,7 @@
         <AssociationConnector Association="Aplicatie_medicalaModel.FK_Internari_Externari_Personal" ManuallyRouted="false" />
         <AssociationConnector Association="Aplicatie_medicalaModel.FK_Personal_Sectii" ManuallyRouted="false" />
         <AssociationConnector Association="Aplicatie_medicalaModel.Categ_Perm" ManuallyRouted="false" />
+        <AssociationConnector Association="Aplicatie_medicalaModel.FK_Internari_Externari_Sectii" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

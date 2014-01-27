@@ -24,9 +24,11 @@ namespace Aplicatie_medicala.Data_Layer
         public System.DateTime Data_internare { get; set; }
         public Nullable<System.DateTime> Data_externare { get; set; }
         public string CNP_Medic { get; set; }
+        public int IDSectie { get; set; }
     
         public virtual ICollection<Diagnostic> Diagnostics { get; set; }
         public virtual Pacienti Pacienti { get; set; }
         public virtual Personal Personal { get; set; }
+        public virtual Sectii Sectii { get; set; }
     }
 }

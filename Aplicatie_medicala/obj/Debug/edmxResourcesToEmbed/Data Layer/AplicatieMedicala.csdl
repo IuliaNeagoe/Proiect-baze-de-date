@@ -79,10 +79,36 @@
       <Parameter Name="version" Mode="In" Type="Int32" />
       <Parameter Name="definition" Mode="In" Type="Binary" />
     </FunctionImport>
-    <FunctionImport Name="compare1" ReturnType="Collection(Int32)">
-      <Parameter Name="pass" Mode="In" Type="String" />
-      <Parameter Name="encrpass" Mode="In" Type="Binary" />
+    <FunctionImport Name="insert_Personal">
+      <Parameter Name="cnp" Mode="In" Type="String" />
+      <Parameter Name="nume" Mode="In" Type="String" />
+      <Parameter Name="prenume" Mode="In" Type="String" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="adr" Mode="In" Type="String" />
+      <Parameter Name="dataa" Mode="In" Type="DateTime" />
+      <Parameter Name="datai" Mode="In" Type="DateTime" />
+      <Parameter Name="parola" Mode="In" Type="String" />
+      <Parameter Name="idcat" Mode="In" Type="Int32" />
+      <Parameter Name="idsec" Mode="In" Type="Int32" />
+      <Parameter Name="sal" Mode="In" Type="Double" />
     </FunctionImport>
+    <FunctionImport Name="insertPersonal">
+      <Parameter Name="cnp" Mode="In" Type="String" />
+      <Parameter Name="nume" Mode="In" Type="String" />
+      <Parameter Name="prenume" Mode="In" Type="String" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="adr" Mode="In" Type="String" />
+      <Parameter Name="dataa" Mode="In" Type="DateTime" />
+      <Parameter Name="datai" Mode="In" Type="DateTime" />
+      <Parameter Name="parola" Mode="In" Type="String" />
+      <Parameter Name="idcat" Mode="In" Type="Int32" />
+      <Parameter Name="idsec" Mode="In" Type="Int32" />
+      <Parameter Name="sal" Mode="In" Type="Double" />
+    </FunctionImport>
+    <AssociationSet Name="FK_Internari_Externari_Sectii" Association="Aplicatie_medicalaModel.FK_Internari_Externari_Sectii">
+      <End Role="Sectii" EntitySet="Sectiis" />
+      <End Role="Internari_Externari" EntitySet="Internari_Externari" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Administrare">
     <Key>
@@ -126,6 +152,8 @@
     <NavigationProperty Name="Diagnostics" Relationship="Aplicatie_medicalaModel.FK_Diagnostic_Internari_Externari" FromRole="Internari_Externari" ToRole="Diagnostic" />
     <NavigationProperty Name="Pacienti" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Pacienti" FromRole="Internari_Externari" ToRole="Pacienti" />
     <NavigationProperty Name="Personal" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Personal" FromRole="Internari_Externari" ToRole="Personal" />
+    <Property Type="Int32" Name="IDSectie" Nullable="false" />
+    <NavigationProperty Name="Sectii" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Sectii" FromRole="Internari_Externari" ToRole="Sectii" />
   </EntityType>
   <EntityType Name="Pacienti">
     <Key>
@@ -157,12 +185,12 @@
     <Property Name="IDCateg" Type="Int32" Nullable="false" />
     <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
     <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
-    <Property Name="Adresa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+    <Property Name="Adresa" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
     <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
     <Property Name="IDSectie" Type="Int32" Nullable="false" />
     <Property Name="Data_angajare" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Data_incheiere" Type="DateTime" Precision="0" />
-    <Property Name="Salariu" Type="Double" Nullable="false" />
+    <Property Name="Salariu" Type="Double" />
     <Property Name="Parola" Type="Binary" Nullable="false" MaxLength="256" FixedLength="false" />
     <NavigationProperty Name="Categorie" Relationship="Aplicatie_medicalaModel.FK_Personal_Categorie" FromRole="Personal" ToRole="Categorie" />
     <NavigationProperty Name="Internari_Externari" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Personal" FromRole="Personal" ToRole="Internari_Externari" />
@@ -175,6 +203,7 @@
     <Property Name="IDSectie" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
     <NavigationProperty Name="Personals" Relationship="Aplicatie_medicalaModel.FK_Personal_Sectii" FromRole="Sectii" ToRole="Personal" />
+    <NavigationProperty Name="Internari_Externari" Relationship="Aplicatie_medicalaModel.FK_Internari_Externari_Sectii" FromRole="Sectii" ToRole="Internari_Externari" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -308,4 +337,18 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <Association Name="FK_Internari_Externari_Sectii">
+    <End Type="Aplicatie_medicalaModel.Sectii" Role="Sectii" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Aplicatie_medicalaModel.Internari_Externari" Role="Internari_Externari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sectii">
+        <PropertyRef Name="IDSectie" />
+      </Principal>
+      <Dependent Role="Internari_Externari">
+        <PropertyRef Name="IDSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
