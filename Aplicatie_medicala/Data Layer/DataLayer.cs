@@ -111,10 +111,113 @@ namespace Aplicatie_medicala
 
               foreach (var item in sectii)
                   list.Add(item.Nume.TrimEnd());
-
+              
               return list;
 
           }
+      }
+     //lista categorii
+      public List<string> get_ListaCategorii()
+      {
+          using (var db = new Data_Layer.Aplicatie_medicalaContext())
+          {
+              var categorii = from c in db.Categories
+                              select c;
+              List<string> list = new List<string>();
+              foreach (var item in categorii)
+                  list.Add(item.Nume.TrimEnd());
+              return list;
+          }
+      }
+
+     //id categorie
+      public int get_idcateg(string categorie)
+      {
+          int id=0;
+
+          using (var db = new Data_Layer.Aplicatie_medicalaContext())
+          {
+              var categ = from c in db.Categories                         
+                          select c;
+              
+              foreach (var item in categ)
+              {
+                  if (item.Nume == categorie)
+                       id= item.IDCateg;
+                 
+              }
+            
+              return id;
+          }
+        
+      }
+
+     //id sectie
+      public int get_idsectie(string sectie)
+      {
+          int id = 0;
+
+          using (var db = new Data_Layer.Aplicatie_medicalaContext())
+          {
+              var sectii = from s in db.Sectiis
+                          select s;
+
+              foreach (var item in sectii)
+              {
+                  if (item.Nume == sectie)
+                      id = item.IDSectie;
+
+              }
+
+              return id;
+          }
+      }
+
+     /// tabela Personal
+      public DataTable  table_Personal()
+      { 
+          using(var db=new Data_Layer.Aplicatie_medicalaContext())
+          {
+             
+               var personals = from p in db.Personals                           
+                                select p;
+               DataTable result = new DataTable();
+               result.Columns.Add("CNP", typeof(string));
+               result.Columns.Add("IDCateg", typeof(Int32));
+               result.Columns.Add("Nume",typeof(string));
+               result.Columns.Add("Prenume",typeof(string));
+               result.Columns.Add("Adresa",typeof(string)).AllowDBNull=true;
+               result.Columns.Add("Telefon",typeof(string)).AllowDBNull=true;
+               result.Columns.Add("IDSectie",typeof(Int32));
+               result.Columns.Add("Data_angajare",typeof(DateTime));
+               DataColumn col = new DataColumn("Data_incheiere");
+               col.DataType=typeof(string);
+               col.AllowDBNull = true;
+               result.Columns.Add(col);
+               result.Columns.Add("Salariu",typeof(float)).AllowDBNull=true;
+               
+
+                   foreach(var item in personals)
+                   {
+                    DataRow row = result.NewRow();
+
+                    row["CNP"] = item.CNP;
+                    row["IDCateg"] = item.IDCateg;
+                    row["Nume"] = item.Nume;
+                    row["Prenume"] = item.Prenume;
+                    row["Adresa"] = item.Adresa;
+                    row["Telefon"] = item.Telefon;
+                    row["IDSectie"] = item.IDSectie;
+                    row["Data_angajare"] = item.Data_angajare;
+                    row["Data_incheiere"] = item.Data_incheiere;
+                    row["Salariu"] = item.Salariu;
+                   
+                    result.Rows.Add(row);
+                   }
+
+                   return result;
+          }
+      
       }
 
       public DataTable get_Pacienti(string cnp)

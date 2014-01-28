@@ -25,10 +25,10 @@ namespace Aplicatie_medicala
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
+            ///DateTime dt = DateTime.Now;
             if (objbs.calllog(txbUsername.Text, txbPassword.Text) == true)
             {
-                string nume = "";  //objbs.get_UserName(txbUsername.Text);
+                string nume =objbs.get_UserName(txbUsername.Text);
                 Aplicatie f = new Aplicatie(nume,txbUsername.Text.TrimEnd());
                 this.Close();
                 f.Show();

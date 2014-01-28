@@ -70,7 +70,7 @@
           </AssociationSet>
         </EntityContainer>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Administrare">
           <Key>
@@ -83,7 +83,7 @@
           <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Categ_Perm">
           <Key>
@@ -145,8 +145,8 @@
           </Key>
           <Property Name="CNP" Type="nchar" Nullable="false" MaxLength="13" />
           <Property Name="IDCateg" Type="int" Nullable="false" />
-          <Property Name="Nume" Type="nchar" Nullable="false" MaxLength="50" />
-          <Property Name="Prenume" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nume" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Prenume" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Adresa" Type="nchar" MaxLength="100" />
           <Property Name="Telefon" Type="nchar" MaxLength="10" />
           <Property Name="IDSectie" Type="int" Nullable="false" />
@@ -554,8 +554,8 @@
           </Key>
           <Property Name="CNP" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
           <Property Name="IDCateg" Type="Int32" Nullable="false" />
-          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
-          <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Adresa" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
           <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="IDSectie" Type="Int32" Nullable="false" />

@@ -183,8 +183,8 @@
     </Key>
     <Property Name="CNP" Type="String" Nullable="false" MaxLength="13" Unicode="true" FixedLength="true" />
     <Property Name="IDCateg" Type="Int32" Nullable="false" />
-    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
-    <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Adresa" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
     <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
     <Property Name="IDSectie" Type="Int32" Nullable="false" />

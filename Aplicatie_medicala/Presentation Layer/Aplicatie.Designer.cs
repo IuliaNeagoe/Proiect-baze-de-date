@@ -73,7 +73,7 @@
             this.btnCautaPers = new System.Windows.Forms.Button();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.cmbSectiePers = new System.Windows.Forms.ComboBox();
-            this.cmbFunctie = new System.Windows.Forms.ComboBox();
+            this.cmbCategorie = new System.Windows.Forms.ComboBox();
             this.txbPrenumePers = new System.Windows.Forms.TextBox();
             this.txbNumePers = new System.Windows.Forms.TextBox();
             this.dgPersonal = new System.Windows.Forms.DataGridView();
@@ -539,7 +539,7 @@
             this.tabPage2.Controls.Add(this.btnCautaPers);
             this.tabPage2.Controls.Add(this.txbUsername);
             this.tabPage2.Controls.Add(this.cmbSectiePers);
-            this.tabPage2.Controls.Add(this.cmbFunctie);
+            this.tabPage2.Controls.Add(this.cmbCategorie);
             this.tabPage2.Controls.Add(this.txbPrenumePers);
             this.tabPage2.Controls.Add(this.txbNumePers);
             this.tabPage2.Controls.Add(this.dgPersonal);
@@ -581,13 +581,13 @@
             this.cmbSectiePers.Size = new System.Drawing.Size(192, 21);
             this.cmbSectiePers.TabIndex = 13;
             // 
-            // cmbFunctie
+            // cmbCategorie
             // 
-            this.cmbFunctie.FormattingEnabled = true;
-            this.cmbFunctie.Location = new System.Drawing.Point(126, 119);
-            this.cmbFunctie.Name = "cmbFunctie";
-            this.cmbFunctie.Size = new System.Drawing.Size(192, 21);
-            this.cmbFunctie.TabIndex = 12;
+            this.cmbCategorie.FormattingEnabled = true;
+            this.cmbCategorie.Location = new System.Drawing.Point(126, 119);
+            this.cmbCategorie.Name = "cmbCategorie";
+            this.cmbCategorie.Size = new System.Drawing.Size(192, 21);
+            this.cmbCategorie.TabIndex = 12;
             // 
             // txbPrenumePers
             // 
@@ -641,9 +641,9 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.Location = new System.Drawing.Point(6, 122);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 18);
+            this.label13.Size = new System.Drawing.Size(81, 18);
             this.label13.TabIndex = 6;
-            this.label13.Text = "Functie";
+            this.label13.Text = "Categorie";
             // 
             // label12
             // 
@@ -685,7 +685,7 @@
             this.lblIesi.BackColor = System.Drawing.Color.Transparent;
             this.lblIesi.Font = new System.Drawing.Font("Script MT Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIesi.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.lblIesi.Location = new System.Drawing.Point(802, 23);
+            this.lblIesi.Location = new System.Drawing.Point(754, 23);
             this.lblIesi.Name = "lblIesi";
             this.lblIesi.Size = new System.Drawing.Size(89, 25);
             this.lblIesi.TabIndex = 3;
@@ -795,7 +795,7 @@
         private System.Windows.Forms.Button btnCautaPers;
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.ComboBox cmbSectiePers;
-        private System.Windows.Forms.ComboBox cmbFunctie;
+        private System.Windows.Forms.ComboBox cmbCategorie;
         private System.Windows.Forms.TextBox txbPrenumePers;
         private System.Windows.Forms.TextBox txbNumePers;
         private System.Windows.Forms.DataGridView dgPersonal;

@@ -48,6 +48,11 @@ namespace Aplicatie_medicala
          return objdl.get_ListaSectii();
      }
 
+     public List<string> get_ListaCategorii()
+     {
+         return objdl.get_ListaCategorii();
+     }
+
      public bool insert_Personal(string cnp, string categ, string nume, string prenume, string adresa, string tel, string sectie, DateTime data_ang, DateTime data_inc, float salariu, string parola)
      {
          if (cnp == "" || categ == "" || nume == "" || prenume == "" || sectie == "")
@@ -66,6 +71,23 @@ namespace Aplicatie_medicala
      public DataTable get_Pacienti(string cnp)
      {
          return objdl.get_Pacienti(cnp);
+     }
+
+     public DataTable table_personal()
+     {
+         return
+              objdl.table_Personal();
+     }
+
+     public int get_idcateg(string categorie)
+     {
+         return objdl.get_idcateg(categorie);
+     }
+
+
+     public int get_idsectie(string sectie)
+     {
+         return objdl.get_idsectie(sectie);
      }
     }
 }

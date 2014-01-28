@@ -37,11 +37,22 @@ namespace Aplicatie_medicala
             foreach (var sectie in objbs.get_ListaSectii())
             {
                 cmbSectie.Items.Add(sectie);
+                cmbSectiePers.Items.Add(sectie);
             }
 
+            //initializare lista categorii
+            foreach (var categorie in objbs.get_ListaCategorii())
+            {
+                cmbCategorie.Items.Add(categorie);
+            }
+            cmbCategorie.Text = "";
+            cmbSectiePers.Text = "";
             //incarca lista cu pacientii de pe sectia user-ului in dgPacienti
 
             dgPacienti.DataSource = objbs.get_Pacienti(cnp);
+
+            //incarca tabela Personal
+            dgPersonal.DataSource = objbs.table_personal();
         }
 
         private void initComp()
@@ -100,6 +111,69 @@ namespace Aplicatie_medicala
         {
             //se face cautarea 
             lblOperatii.Text = "Operatii asupra bazei de date efectuate de " + txbNumePers + ": ";
+            //doar numele
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+            for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+            {
+                dgPersonal.CurrentCell = null;
+                var row = dgPersonal.Rows[i];
+           
+                if (row.Cells[2].Value.ToString() == txbNumePers.Text)
+                    row.Visible = true;
+                else
+                row.Visible=false;
+            }
+
+            //doar prenumele
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString() == txbPrenumePers.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+
+            //doar categorie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idcateg(cmbCategorie.Text)>0  && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+
+            //doar sectie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //doar username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if ( row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
 
         }
 
