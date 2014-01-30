@@ -70,6 +70,7 @@ namespace Aplicatie_medicala
         {
             //afisam tabul cu tratament
             dgPacienti.Enabled = false;
+            tabDetalii.SelectTab(tbTratament);
         }
 
         private void cmbDiagnostic_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +181,24 @@ namespace Aplicatie_medicala
         private void Aplicatie_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void reimprospatareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //actualizare tabel pacienti
+            dgPacienti.DataSource = objbs.get_Pacienti(cnp);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tabDetalii.SelectTab(tbDiagnostic);
+        }
+
+        //activare la click a popularii tabelei diagnostic pentru pacientul selectat
+        private void dgPacienti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.RowIndex != dgPacienti.RowCount - 1)
+                dgDiagnostic.DataSource = objbs.get_detalii_pacient(dgPacienti.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
 
 

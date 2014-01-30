@@ -89,5 +89,9 @@ namespace Aplicatie_medicala
      {
          return objdl.get_idsectie(sectie);
      }
+     public DataTable get_detalii_pacient(string cnp)
+     {
+         return objdl.get_detalii_pacient(cnp);
+     }
     }
 }

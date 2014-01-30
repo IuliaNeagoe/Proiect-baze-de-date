@@ -36,3 +36,5 @@ C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\A
 C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\Aplicatie_medicala.csproj.GenerateResource.Cache
 C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.dll
 C:\Users\hp\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.xml
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.dll
+C:\Users\Iulia_2\Documents\GitHub\Proiect-baze-de-date\Aplicatie_medicala\obj\Debug\EntityFramework.xml

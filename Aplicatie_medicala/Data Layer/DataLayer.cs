@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 
 namespace Aplicatie_medicala
 {
- public partial class DataLayer
+    public partial class DataLayer
     {
-        public Boolean get(string uname,string pass)
+        public Boolean get(string uname, string pass)
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
@@ -32,16 +32,16 @@ namespace Aplicatie_medicala
                 //          where b.CNP=uname && db
                 return arg;
             }
-           
+
         }
 
-      //pentru moment nu merge properly....ma mai ocup de ea in alta zi
+        //pentru moment nu merge properly....ma mai ocup de ea in alta zi
         public bool insert_Personal(string cnp, string categ, string nume, string prenume, string adresa, string tel, string sectie, DateTime data_ang, DateTime data_inc, float salariu, string parola)
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
-                var id_categ = db.Categories.Where(c => c.Nume.Equals(categ)).Select(c=> c.IDCateg).First();
-                var id_sectie = db.Sectiis.Where(s => s.Nume.Equals(sectie)).Select(s=> s.IDSectie).First();
+                var id_categ = db.Categories.Where(c => c.Nume.Equals(categ)).Select(c => c.IDCateg).First();
+                var id_sectie = db.Sectiis.Where(s => s.Nume.Equals(sectie)).Select(s => s.IDSectie).First();
 
                 db.insert_Personal(cnp, nume, prenume, tel, adresa, data_ang, data_inc, parola, id_categ, id_sectie, salariu);
                 db.SaveChanges();
@@ -73,7 +73,7 @@ namespace Aplicatie_medicala
             }
         }
 
-      public  string get_UserName(string cnp)
+        public string get_UserName(string cnp)
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
@@ -83,122 +83,122 @@ namespace Aplicatie_medicala
             }
         }
 
-      public List<string> get_ListaMedici()
-      {
-          using (var db = new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var medici = db.Personals
-                          .Where(m => m.IDCateg==2);
+        public List<string> get_ListaMedici()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var medici = db.Personals
+                            .Where(m => m.IDCateg == 2);
 
-              List<string> list = new List<string>();
+                List<string> list = new List<string>();
 
-              foreach (var item in medici)
-                  list.Add(item.Nume.TrimEnd() + " " + item.Prenume.TrimEnd());
+                foreach (var item in medici)
+                    list.Add(item.Nume.TrimEnd() + " " + item.Prenume.TrimEnd());
 
-              return list;
+                return list;
 
-          }
-      }
-      public List<string> get_ListaSectii()
-      {
-          using (var db = new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var sectii = from s in db.Sectiis
-                           select s;
+            }
+        }
+        public List<string> get_ListaSectii()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var sectii = from s in db.Sectiis
+                             select s;
 
 
-              List<string> list = new List<string>();
+                List<string> list = new List<string>();
 
-              foreach (var item in sectii)
-                  list.Add(item.Nume.TrimEnd());
-              
-              return list;
+                foreach (var item in sectii)
+                    list.Add(item.Nume.TrimEnd());
 
-          }
-      }
-     //lista categorii
-      public List<string> get_ListaCategorii()
-      {
-          using (var db = new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var categorii = from c in db.Categories
-                              select c;
-              List<string> list = new List<string>();
-              foreach (var item in categorii)
-                  list.Add(item.Nume.TrimEnd());
-              return list;
-          }
-      }
+                return list;
 
-     //id categorie
-      public int get_idcateg(string categorie)
-      {
-          int id=0;
+            }
+        }
+        //lista categorii
+        public List<string> get_ListaCategorii()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var categorii = from c in db.Categories
+                                select c;
+                List<string> list = new List<string>();
+                foreach (var item in categorii)
+                    list.Add(item.Nume.TrimEnd());
+                return list;
+            }
+        }
 
-          using (var db = new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var categ = from c in db.Categories                         
-                          select c;
-              
-              foreach (var item in categ)
-              {
-                  if (item.Nume == categorie)
-                       id= item.IDCateg;
-                 
-              }
-            
-              return id;
-          }
-        
-      }
+        //id categorie
+        public int get_idcateg(string categorie)
+        {
+            int id = 0;
 
-     //id sectie
-      public int get_idsectie(string sectie)
-      {
-          int id = 0;
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var categ = from c in db.Categories
+                            select c;
 
-          using (var db = new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var sectii = from s in db.Sectiis
-                          select s;
+                foreach (var item in categ)
+                {
+                    if (item.Nume == categorie)
+                        id = item.IDCateg;
 
-              foreach (var item in sectii)
-              {
-                  if (item.Nume == sectie)
-                      id = item.IDSectie;
+                }
 
-              }
+                return id;
+            }
 
-              return id;
-          }
-      }
+        }
 
-     /// tabela Personal
-      public DataTable  table_Personal()
-      { 
-          using(var db=new Data_Layer.Aplicatie_medicalaContext())
-          {
-             
-               var personals = from p in db.Personals                           
+        //id sectie
+        public int get_idsectie(string sectie)
+        {
+            int id = 0;
+
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var sectii = from s in db.Sectiis
+                             select s;
+
+                foreach (var item in sectii)
+                {
+                    if (item.Nume == sectie)
+                        id = item.IDSectie;
+
+                }
+
+                return id;
+            }
+        }
+
+        /// tabela Personal
+        public DataTable table_Personal()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+
+                var personals = from p in db.Personals
                                 select p;
-               DataTable result = new DataTable();
-               result.Columns.Add("CNP", typeof(string));
-               result.Columns.Add("IDCateg", typeof(Int32));
-               result.Columns.Add("Nume",typeof(string));
-               result.Columns.Add("Prenume",typeof(string));
-               result.Columns.Add("Adresa",typeof(string)).AllowDBNull=true;
-               result.Columns.Add("Telefon",typeof(string)).AllowDBNull=true;
-               result.Columns.Add("IDSectie",typeof(Int32));
-               result.Columns.Add("Data_angajare",typeof(DateTime));
-               DataColumn col = new DataColumn("Data_incheiere");
-               col.DataType=typeof(string);
-               col.AllowDBNull = true;
-               result.Columns.Add(col);
-               result.Columns.Add("Salariu",typeof(float)).AllowDBNull=true;
-               
+                DataTable result = new DataTable();
+                result.Columns.Add("CNP", typeof(string));
+                result.Columns.Add("IDCateg", typeof(Int32));
+                result.Columns.Add("Nume", typeof(string));
+                result.Columns.Add("Prenume", typeof(string));
+                result.Columns.Add("Adresa", typeof(string)).AllowDBNull = true;
+                result.Columns.Add("Telefon", typeof(string)).AllowDBNull = true;
+                result.Columns.Add("IDSectie", typeof(Int32));
+                result.Columns.Add("Data_angajare", typeof(DateTime));
+                DataColumn col = new DataColumn("Data_incheiere");
+                col.DataType = typeof(string);
+                col.AllowDBNull = true;
+                result.Columns.Add(col);
+                result.Columns.Add("Salariu", typeof(float)).AllowDBNull = true;
 
-                   foreach(var item in personals)
-                   {
+
+                foreach (var item in personals)
+                {
                     DataRow row = result.NewRow();
 
                     row["CNP"] = item.CNP;
@@ -211,59 +211,81 @@ namespace Aplicatie_medicala
                     row["Data_angajare"] = item.Data_angajare;
                     row["Data_incheiere"] = item.Data_incheiere;
                     row["Salariu"] = item.Salariu;
-                   
+
                     result.Rows.Add(row);
-                   }
+                }
 
-                   return result;
-          }
-      
-      }
+                return result;
+            }
 
-      public DataTable get_Pacienti(string cnp)
-      {
-          //creaza un tabel cu toti pacientii internati pe sectia userului
-          
-          using (var db=new Data_Layer.Aplicatie_medicalaContext())
-          {
-              var id_sectie = db.Personals.Where(p => p.CNP.Equals(cnp))
-                               .Select(p => p.IDSectie).First();
+        }
 
-              var pacienti = from p in db.Pacientis
-                                              join i in db.Internari_Externari on p.CNP equals i.CNP
-                                              where i.IDSectie == id_sectie
-                                              where p.Internat==true
-                                              select p;
+        public DataTable get_Pacienti(string cnp)
+        {
+            //creaza un tabel cu toti pacientii internati pe sectia userului
 
-              DataTable result = new DataTable();
-              result.Columns.Add("CNP", typeof(string));
-              result.Columns.Add("Nume", typeof(string));
-              result.Columns.Add("Prenume", typeof(string));
-              result.Columns.Add("Telefon", typeof(string));
-              result.Columns.Add("Varsta", typeof(int));
-              result.Columns.Add("Email", typeof(string));
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var id_sectie = db.Personals.Where(p => p.CNP.Equals(cnp))
+                                 .Select(p => p.IDSectie).First();
 
+                var pacienti = from p in db.Pacientis
+                               join i in db.Internari_Externari on p.CNP equals i.CNP
+                               where i.IDSectie == id_sectie
+                               where p.Internat == true
+                               select p;
 
-              foreach (var item in pacienti)
-              {
-                  DataRow row = result.NewRow();
-                  row["CNP"] = item.CNP;
-                  row["Nume"] = item.Nume;
-                  row["Prenume"] = item.Prenume;
-                  row["Telefon"] = item.Telefon;
-                  row["Varsta"]=item.Varsta;
-                  row["Email"]=item.Email;
-
-                  result.Rows.Add(row);
-              }
-
-              return result;
-            
-
-          }
-      }
+                DataTable result = new DataTable();
+                result.Columns.Add("CNP", typeof(string));
+                result.Columns.Add("Nume", typeof(string));
+                result.Columns.Add("Prenume", typeof(string));
+                result.Columns.Add("Telefon", typeof(string));
+                result.Columns.Add("Varsta", typeof(int));
+                result.Columns.Add("Email", typeof(string));
 
 
+                foreach (var item in pacienti)
+                {
+                    DataRow row = result.NewRow();
+                    row["CNP"] = item.CNP;
+                    row["Nume"] = item.Nume;
+                    row["Prenume"] = item.Prenume;
+                    row["Telefon"] = item.Telefon;
+                    row["Varsta"] = item.Varsta;
+                    row["Email"] = item.Email;
 
+                    result.Rows.Add(row);
+                }
+
+                return result;
+
+
+            }
+        }
+
+        public DataTable get_detalii_pacient(string cnp) // populare tabela diagnostic pacienti
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var id_inreg = db.Internari_Externari.Where(p => p.CNP.Equals(cnp) && p.Data_externare.Equals(null)).Select(p => p.IDInreg).First();
+                
+                var detalii = from p in db.Diagnostics
+                              where p.IDInreg==id_inreg
+                              select p;
+                DataTable result = new DataTable();
+                result.Columns.Add("Diagnostic", typeof(string));
+
+
+                foreach (var item in detalii)
+                {
+                    DataRow row = result.NewRow();
+                    row["Diagnostic"] = item.Nume;
+                    result.Rows.Add(row);
+                }
+
+                return result;
+            }
+
+        }
     }
 }
