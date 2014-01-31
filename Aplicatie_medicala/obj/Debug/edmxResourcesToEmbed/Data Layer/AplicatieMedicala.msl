@@ -100,10 +100,10 @@
     <EntitySetMapping Name="Trataments">
       <EntityTypeMapping TypeName="Aplicatie_medicalaModel.Tratament">
         <MappingFragment StoreEntitySet="Tratament">
+          <ScalarProperty Name="IDMod" ColumnName="IDMod" />
           <ScalarProperty Name="IDTratament" ColumnName="IDTratament" />
           <ScalarProperty Name="IDDiagnostic" ColumnName="IDDiagnostic" />
           <ScalarProperty Name="Medicament" ColumnName="Medicament" />
-          <ScalarProperty Name="Administare" ColumnName="Administare" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -142,5 +142,15 @@
     <FunctionImportMapping FunctionImportName="compare" FunctionName="Aplicatie_medicalaModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="insert_Personal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
     <FunctionImportMapping FunctionImportName="insertPersonal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
+    <FunctionImportMapping FunctionImportName="Insert_Internari_Externari" FunctionName="Aplicatie_medicalaModel.Store.Insert_Internari_Externari" />
+    <EntitySetMapping Name="Mod_Administarea">
+      <EntityTypeMapping TypeName="Aplicatie_medicalaModel.Mod_Administarea">
+        <MappingFragment StoreEntitySet="Mod_Administarea">
+          <ScalarProperty Name="Mod" ColumnName="Mod" />
+          <ScalarProperty Name="IDMod" ColumnName="IDMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Insert_Diagnostic" FunctionName="Aplicatie_medicalaModel.Store.Insert_Diagnostic" />
   </EntityContainerMapping>
 </Mapping>

@@ -109,6 +109,21 @@
       <End Role="Sectii" EntitySet="Sectiis" />
       <End Role="Internari_Externari" EntitySet="Internari_Externari" />
     </AssociationSet>
+    <FunctionImport Name="Insert_Internari_Externari">
+      <Parameter Name="cnp_pacient" Mode="In" Type="String" />
+      <Parameter Name="cnp_medic" Mode="In" Type="String" />
+      <Parameter Name="data_int" Mode="In" Type="DateTime" />
+      <Parameter Name="id_sectie" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Mod_Administarea" EntityType="Aplicatie_medicalaModel.Mod_Administarea" />
+    <AssociationSet Name="FK_Tratament_Mod_Administrarea" Association="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea">
+      <End Role="Mod_Administarea" EntitySet="Mod_Administarea" />
+      <End Role="Tratament" EntitySet="Trataments" />
+    </AssociationSet>
+    <FunctionImport Name="Insert_Diagnostic">
+      <Parameter Name="id_inreg" Mode="In" Type="Guid" />
+      <Parameter Name="nume" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Administrare">
     <Key>
@@ -222,9 +237,10 @@
     <Property Name="IDTratament" Type="Guid" Nullable="false" />
     <Property Name="IDDiagnostic" Type="Guid" Nullable="false" />
     <Property Name="Medicament" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
-    <Property Name="Administare" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
     <NavigationProperty Name="Administrares" Relationship="Aplicatie_medicalaModel.FK_Administare_Tratament" FromRole="Tratament" ToRole="Administrare" />
     <NavigationProperty Name="Diagnostic" Relationship="Aplicatie_medicalaModel.FK_Tratament_Diagnostic" FromRole="Tratament" ToRole="Diagnostic" />
+    <Property Type="Int32" Name="IDMod" Nullable="false" />
+    <NavigationProperty Name="Mod_Administarea" Relationship="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea" FromRole="Tratament" ToRole="Mod_Administarea" />
   </EntityType>
   <Association Name="FK_Administare_Tratament">
     <End Role="Tratament" Type="Aplicatie_medicalaModel.Tratament" Multiplicity="1">
@@ -348,6 +364,28 @@
       </Principal>
       <Dependent Role="Internari_Externari">
         <PropertyRef Name="IDSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Mod_Administarea">
+    <Key>
+      <PropertyRef Name="IDMod" />
+    </Key>
+    <Property Type="Int32" Name="IDMod" Nullable="false" />
+    <Property Type="String" Name="Mod" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Tratament" Relationship="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea" FromRole="Mod_Administarea" ToRole="Tratament" />
+  </EntityType>
+  <Association Name="FK_Tratament_Mod_Administrarea">
+    <End Type="Aplicatie_medicalaModel.Mod_Administarea" Role="Mod_Administarea" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Aplicatie_medicalaModel.Tratament" Role="Tratament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mod_Administarea">
+        <PropertyRef Name="IDMod" />
+      </Principal>
+      <Dependent Role="Tratament">
+        <PropertyRef Name="IDMod" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

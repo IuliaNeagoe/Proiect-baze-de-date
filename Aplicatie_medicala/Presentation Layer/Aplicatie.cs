@@ -14,6 +14,7 @@ namespace Aplicatie_medicala
     {
         public BusinessLayer objbs = new BusinessLayer();
         public string cnp;
+        public string cnp_pacient;
         public Aplicatie()
         {
            
@@ -38,6 +39,20 @@ namespace Aplicatie_medicala
             {
                 cmbSectie.Items.Add(sectie);
                 cmbSectiePers.Items.Add(sectie);
+            }
+
+            //initializare lista date
+
+            foreach (var data in objbs.get_ListaDataInternare())
+            {
+                cmbInternare.Items.Add(data);
+
+            }
+
+            //initializare moduri de adminstarare tratament
+            foreach (var mod in objbs.get_ListaModAdministrare())
+            {
+                chbModAdmin.Items.Add(mod);
             }
 
             //initializare lista categorii
@@ -199,6 +214,50 @@ namespace Aplicatie_medicala
         {
             if (e.RowIndex != -1 && e.RowIndex != dgPacienti.RowCount - 1)
                 dgDiagnostic.DataSource = objbs.get_detalii_pacient(dgPacienti.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void btnAddPersonal_Click(object sender, EventArgs e)
+        {
+            //apelarea functiei de adaugare Personal
+           // if (objbs.insert_Personal(txbNumePers.Text,txbPrenumePers.Text,))...to be continued by Iulia :)
+            DateTime now=DateTime.Now;
+            DateTime later=DateTime.MaxValue;
+            //try
+            //{
+            //    objbs.insert_Personal("1871225323741", "Medic", "Popescu", "David", "Bucuresti, nr.15", "0753432761", "Pediatrie", now, later, 4000, "david");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
+        }
+
+        private void btnAddPacient_Click(object sender, EventArgs e)
+        {
+            if (objbs.insert_Pacient(txbCNP_Pacient.Text, txbNume_Pacient.Text,
+                txbPrenume_Pacient.Text, txbVarsta_Pacient.Text, txbAdresa_Pacient.Text,
+                txbTelefon_Pacient.Text, txbEmail_Pacient.Text, chboxInternat.Checked, cnp))
+            {
+                cnp_pacient = txbCNP_Pacient.Text;
+                MessageBox.Show("Pacientul a fost inserat in baza de date");
+            }
+            else
+                MessageBox.Show("Pacientul nu a fost inserat in baza de date");
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddMed_Click(object sender, EventArgs e)
+        {
+            //prima data adaugam diagnosticul daca acesta nu a fost adaugat--se face adaugarea la 
+            //pacientul care are cnp-ul pastrat in cnp_pacient
+
+           objbs.insert_Diagnostic_Tratament(txbDiagnostic.Text,txbMedicament.Text, cnp_pacient, chbxAdministrare.CheckedItems.ToString());
+          //  objbs.insert_Diagnostic_Tratament("Raceala", "Ibuprofen", "1780925376859", "1/zi");
         }
 
 

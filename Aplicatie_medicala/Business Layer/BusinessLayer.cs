@@ -18,10 +18,16 @@ namespace Aplicatie_medicala
           return objdl.get(unume, pass);
       }
 
-      public bool insert_Pacient(string cnp, string nume, string prenume, int varsta, string adresa, string tel, string email)
+      public bool insert_Pacient(string cnp, string nume, string prenume, string varsta, string adresa, string tel, string email, bool internat, string cnp_medic)
       {
           if (cnp == "" || nume == "" || prenume == "")
               return false;
+          int age=0;
+
+          if (varsta=="")
+            age=0;
+          else
+              age=Convert.ToInt32(varsta);
 
           if (adresa == "")
               adresa = null;
@@ -30,7 +36,7 @@ namespace Aplicatie_medicala
           if (email == "")
               email = null;
 
-          return objdl.insert_Pacient(cnp, nume, prenume, varsta, adresa, tel, email);
+          return objdl.insert_Pacient(cnp, nume, prenume, age, adresa, tel, email,internat, cnp_medic);
       }
 
      public string get_UserName(string cnp)
@@ -48,9 +54,19 @@ namespace Aplicatie_medicala
          return objdl.get_ListaSectii();
      }
 
+     public List<string> get_ListaDataInternare()
+     {
+         return objdl.get_ListaDataInternare();
+     }
+
      public List<string> get_ListaCategorii()
      {
          return objdl.get_ListaCategorii();
+     }
+
+     public List<string> get_ListaModAdministrare()
+     {
+         return objdl.get_ListaMod_Administare();
      }
 
      public bool insert_Personal(string cnp, string categ, string nume, string prenume, string adresa, string tel, string sectie, DateTime data_ang, DateTime data_inc, float salariu, string parola)
@@ -92,6 +108,12 @@ namespace Aplicatie_medicala
      public DataTable get_detalii_pacient(string cnp)
      {
          return objdl.get_detalii_pacient(cnp);
+     }
+
+     public bool insert_Diagnostic_Tratament(string diagnostic, string tratament, string cnp_pacient, string mod)
+     {
+         Guid id_diag = objdl.insert_Diagnostic(cnp_pacient, diagnostic);
+         return objdl.insert_Tratament(id_diag, tratament, mod);
      }
     }
 }

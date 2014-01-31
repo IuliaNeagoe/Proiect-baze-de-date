@@ -38,6 +38,7 @@ namespace Aplicatie_medicala.Data_Layer
         public DbSet<Sectii> Sectiis { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Tratament> Trataments { get; set; }
+        public DbSet<Mod_Administarea> Mod_Administarea { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -259,6 +260,40 @@ namespace Aplicatie_medicala.Data_Layer
                 new ObjectParameter("sal", typeof(double));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertPersonal", cnpParameter, numeParameter, prenumeParameter, telParameter, adrParameter, dataaParameter, dataiParameter, parolaParameter, idcatParameter, idsecParameter, salParameter);
+        }
+    
+        public virtual int Insert_Internari_Externari(string cnp_pacient, string cnp_medic, Nullable<System.DateTime> data_int, Nullable<int> id_sectie)
+        {
+            var cnp_pacientParameter = cnp_pacient != null ?
+                new ObjectParameter("cnp_pacient", cnp_pacient) :
+                new ObjectParameter("cnp_pacient", typeof(string));
+    
+            var cnp_medicParameter = cnp_medic != null ?
+                new ObjectParameter("cnp_medic", cnp_medic) :
+                new ObjectParameter("cnp_medic", typeof(string));
+    
+            var data_intParameter = data_int.HasValue ?
+                new ObjectParameter("data_int", data_int) :
+                new ObjectParameter("data_int", typeof(System.DateTime));
+    
+            var id_sectieParameter = id_sectie.HasValue ?
+                new ObjectParameter("id_sectie", id_sectie) :
+                new ObjectParameter("id_sectie", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Insert_Internari_Externari", cnp_pacientParameter, cnp_medicParameter, data_intParameter, id_sectieParameter);
+        }
+    
+        public virtual int Insert_Diagnostic(Nullable<System.Guid> id_inreg, string nume)
+        {
+            var id_inregParameter = id_inreg.HasValue ?
+                new ObjectParameter("id_inreg", id_inreg) :
+                new ObjectParameter("id_inreg", typeof(System.Guid));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Insert_Diagnostic", id_inregParameter, numeParameter);
         }
     }
 }

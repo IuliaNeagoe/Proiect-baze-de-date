@@ -12,20 +12,16 @@ namespace Aplicatie_medicala.Data_Layer
     using System;
     using System.Collections.Generic;
     
-    public partial class Tratament
+    public partial class Mod_Administarea
     {
-        public Tratament()
+        public Mod_Administarea()
         {
-            this.Administrares = new HashSet<Administrare>();
+            this.Tratament = new HashSet<Tratament>();
         }
     
-        public System.Guid IDTratament { get; set; }
-        public System.Guid IDDiagnostic { get; set; }
-        public string Medicament { get; set; }
         public int IDMod { get; set; }
+        public string Mod { get; set; }
     
-        public virtual ICollection<Administrare> Administrares { get; set; }
-        public virtual Diagnostic Diagnostic { get; set; }
-        public virtual Mod_Administarea Mod_Administarea { get; set; }
+        public virtual ICollection<Tratament> Tratament { get; set; }
     }
 }

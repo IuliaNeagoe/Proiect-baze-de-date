@@ -22,6 +22,7 @@
           <EntitySet Name="Categorie" EntityType="Aplicatie_medicalaModel.Store.Categorie" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Diagnostic" EntityType="Aplicatie_medicalaModel.Store.Diagnostic" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Internari_Externari" EntityType="Aplicatie_medicalaModel.Store.Internari_Externari" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mod_Administarea" EntityType="Aplicatie_medicalaModel.Store.Mod_Administarea" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Pacienti" EntityType="Aplicatie_medicalaModel.Store.Pacienti" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Permisiuni" EntityType="Aplicatie_medicalaModel.Store.Permisiuni" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Personal" EntityType="Aplicatie_medicalaModel.Store.Personal" store:Type="Tables" Schema="dbo" />
@@ -68,9 +69,13 @@
             <End Role="Diagnostic" EntitySet="Diagnostic" />
             <End Role="Tratament" EntitySet="Tratament" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tratament_Mod_Administrarea" Association="Aplicatie_medicalaModel.Store.FK_Tratament_Mod_Administrarea">
+            <End Role="Mod_Administarea" EntitySet="Mod_Administarea" />
+            <End Role="Tratament" EntitySet="Tratament" />
+          </AssociationSet>
         </EntityContainer>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'Aplicatie_medicala.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Administrare">
           <Key>
@@ -83,7 +88,7 @@
           <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'Aplicatie_medicala.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Categ_Perm">
           <Key>
@@ -118,6 +123,13 @@
           <Property Name="Data_externare" Type="date" />
           <Property Name="CNP_Medic" Type="nchar" Nullable="false" MaxLength="13" />
           <Property Name="IDSectie" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mod_Administarea">
+          <Key>
+            <PropertyRef Name="IDMod" />
+          </Key>
+          <Property Name="IDMod" Type="int" Nullable="false" />
+          <Property Name="Mod" Type="nchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="Pacienti">
           <Key>
@@ -179,7 +191,7 @@
           <Property Name="IDTratament" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IDDiagnostic" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Medicament" Type="char" Nullable="false" MaxLength="50" />
-          <Property Name="Administare" Type="nchar" MaxLength="100" />
+          <Property Name="IDMod" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Administare_Tratament">
           <End Role="Tratament" Type="Aplicatie_medicalaModel.Store.Tratament" Multiplicity="1">
@@ -319,11 +331,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tratament_Mod_Administrarea">
+          <End Role="Mod_Administarea" Type="Aplicatie_medicalaModel.Store.Mod_Administarea" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tratament" Type="Aplicatie_medicalaModel.Store.Tratament" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mod_Administarea">
+              <PropertyRef Name="IDMod" />
+            </Principal>
+            <Dependent Role="Tratament">
+              <PropertyRef Name="IDMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="compare" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
           <Parameter Name="encrpass" Type="varbinary" Mode="In" />
         </Function>
         <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Insert_Diagnostic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_inreg" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="nume" Type="char" Mode="In" />
+        </Function>
+        <Function Name="Insert_Internari_Externari" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cnp_pacient" Type="char" Mode="In" />
+          <Parameter Name="cnp_medic" Type="char" Mode="In" />
+          <Parameter Name="data_int" Type="datetime" Mode="In" />
+          <Parameter Name="id_sectie" Type="int" Mode="In" />
+        </Function>
         <Function Name="insert_Personal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cnp" Type="char" Mode="In" />
           <Parameter Name="nume" Type="char" Mode="In" />
@@ -480,6 +516,21 @@
             <End Role="Sectii" EntitySet="Sectiis" />
             <End Role="Internari_Externari" EntitySet="Internari_Externari" />
           </AssociationSet>
+          <FunctionImport Name="Insert_Internari_Externari">
+            <Parameter Name="cnp_pacient" Mode="In" Type="String" />
+            <Parameter Name="cnp_medic" Mode="In" Type="String" />
+            <Parameter Name="data_int" Mode="In" Type="DateTime" />
+            <Parameter Name="id_sectie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Mod_Administarea" EntityType="Aplicatie_medicalaModel.Mod_Administarea" />
+          <AssociationSet Name="FK_Tratament_Mod_Administrarea" Association="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea">
+            <End Role="Mod_Administarea" EntitySet="Mod_Administarea" />
+            <End Role="Tratament" EntitySet="Trataments" />
+          </AssociationSet>
+          <FunctionImport Name="Insert_Diagnostic">
+            <Parameter Name="id_inreg" Mode="In" Type="Guid" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Administrare">
           <Key>
@@ -593,9 +644,10 @@
           <Property Name="IDTratament" Type="Guid" Nullable="false" />
           <Property Name="IDDiagnostic" Type="Guid" Nullable="false" />
           <Property Name="Medicament" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
-          <Property Name="Administare" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
           <NavigationProperty Name="Administrares" Relationship="Aplicatie_medicalaModel.FK_Administare_Tratament" FromRole="Tratament" ToRole="Administrare" />
           <NavigationProperty Name="Diagnostic" Relationship="Aplicatie_medicalaModel.FK_Tratament_Diagnostic" FromRole="Tratament" ToRole="Diagnostic" />
+          <Property Type="Int32" Name="IDMod" Nullable="false" />
+          <NavigationProperty Name="Mod_Administarea" Relationship="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea" FromRole="Tratament" ToRole="Mod_Administarea" />
         </EntityType>
         <Association Name="FK_Administare_Tratament">
           <End Role="Tratament" Type="Aplicatie_medicalaModel.Tratament" Multiplicity="1">
@@ -722,6 +774,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Mod_Administarea">
+          <Key>
+            <PropertyRef Name="IDMod" />
+          </Key>
+          <Property Type="Int32" Name="IDMod" Nullable="false" />
+          <Property Type="String" Name="Mod" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Tratament" Relationship="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea" FromRole="Mod_Administarea" ToRole="Tratament" />
+        </EntityType>
+        <Association Name="FK_Tratament_Mod_Administrarea">
+          <End Type="Aplicatie_medicalaModel.Mod_Administarea" Role="Mod_Administarea" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Aplicatie_medicalaModel.Tratament" Role="Tratament" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mod_Administarea">
+              <PropertyRef Name="IDMod" />
+            </Principal>
+            <Dependent Role="Tratament">
+              <PropertyRef Name="IDMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -827,10 +901,10 @@
           <EntitySetMapping Name="Trataments">
             <EntityTypeMapping TypeName="Aplicatie_medicalaModel.Tratament">
               <MappingFragment StoreEntitySet="Tratament">
+                <ScalarProperty Name="IDMod" ColumnName="IDMod" />
                 <ScalarProperty Name="IDTratament" ColumnName="IDTratament" />
                 <ScalarProperty Name="IDDiagnostic" ColumnName="IDDiagnostic" />
                 <ScalarProperty Name="Medicament" ColumnName="Medicament" />
-                <ScalarProperty Name="Administare" ColumnName="Administare" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -869,6 +943,16 @@
           <FunctionImportMapping FunctionImportName="compare" FunctionName="Aplicatie_medicalaModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="insert_Personal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
           <FunctionImportMapping FunctionImportName="insertPersonal" FunctionName="Aplicatie_medicalaModel.Store.insert_Personal" />
+          <FunctionImportMapping FunctionImportName="Insert_Internari_Externari" FunctionName="Aplicatie_medicalaModel.Store.Insert_Internari_Externari" />
+          <EntitySetMapping Name="Mod_Administarea">
+            <EntityTypeMapping TypeName="Aplicatie_medicalaModel.Mod_Administarea">
+              <MappingFragment StoreEntitySet="Mod_Administarea">
+                <ScalarProperty Name="Mod" ColumnName="Mod" />
+                <ScalarProperty Name="IDMod" ColumnName="IDMod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Insert_Diagnostic" FunctionName="Aplicatie_medicalaModel.Store.Insert_Diagnostic" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

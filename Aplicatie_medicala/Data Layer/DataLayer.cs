@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Transactions;
+using System.Data.Entity;
 
 namespace Aplicatie_medicala
 {
@@ -35,41 +37,121 @@ namespace Aplicatie_medicala
 
         }
 
-        //pentru moment nu merge properly....ma mai ocup de ea in alta zi
+        
         public bool insert_Personal(string cnp, string categ, string nume, string prenume, string adresa, string tel, string sectie, DateTime data_ang, DateTime data_inc, float salariu, string parola)
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
+
                 var id_categ = db.Categories.Where(c => c.Nume.Equals(categ)).Select(c => c.IDCateg).First();
                 var id_sectie = db.Sectiis.Where(s => s.Nume.Equals(sectie)).Select(s => s.IDSectie).First();
 
                 db.insert_Personal(cnp, nume, prenume, tel, adresa, data_ang, data_inc, parola, id_categ, id_sectie, salariu);
-                db.SaveChanges();
-            }
+                if (db.SaveChanges() > 0)
+                    return true;
 
+               
+
+            }
             return false;
         }
 
-        public bool insert_Pacient(string cnp, string nume, string prenume, int varsta, string adresa, string tel, string email)
+        public bool insert_Pacient(string cnp, string nume, string prenume, int varsta, string adresa, string tel, string email, bool internat, string cnp_medic)
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
-                var pacient = new Data_Layer.Pacienti()
+                //db.Database.Connection.Open();
+                //pentru ca inseram in 2 tabele facem o tranzactie
+                //using (var dbContextTransaction = db.Database.Connection.BeginTransaction())
+                //{
+                    try
+                    {
+                        var pacient = new Data_Layer.Pacienti()
+                        {
+                            CNP = cnp,
+                            Nume = nume,
+                            Prenume = prenume,
+                            Varsta = varsta,
+                            Adresa = adresa,
+                            Telefon = tel,
+                            Email = email,
+                            Internat = internat
+                        };
+
+                        db.Pacientis.Add(pacient);
+                        db.SaveChanges();
+
+                        //facem insert si in tabelul de internari_externari
+
+                        var id_sectie = db.Personals.Where(p => p.CNP.Equals(cnp_medic)).Select(s => s.IDSectie).First();
+
+                        db.Insert_Internari_Externari(cnp, cnp_medic, DateTime.Now, id_sectie);
+                        db.SaveChanges();
+              
+                        
+                        //dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                       // Console.WriteLine(ex.Message.ToString());
+                        //dbContextTransaction.Rollback();
+                        return false;
+                    }
+               // }
+            }
+        }
+
+        public Guid insert_Diagnostic(string cnp_pacient, string nume)
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                //id-ul ultimei internari
+                var id_inreg = db.Internari_Externari
+                    .Where(i => i.CNP.Equals(cnp_pacient))
+                    .Select(i => i.IDInreg).First();
+
+                var check = db.Diagnostics.Where(d => d.Nume.Equals(nume) && d.IDInreg.Equals(id_inreg)).Count();
+
+                //pacientul nu a fost inreg cu acest diagnostic
+                if (check == 0)
                 {
-                    CNP = cnp,
-                    Nume = nume,
-                    Prenume = prenume,
-                    Varsta = varsta,
-                    Adresa = adresa,
-                    Telefon = tel,
-                    Email = email,
-                    Internat = true
-                };
+                    db.Insert_Diagnostic(id_inreg, nume);
+                    db.SaveChanges();
+                }
 
-                db.Pacientis.Add(pacient);
-                db.SaveChanges();
-                return true;
+                var diag = db.Diagnostics.Where(d => d.Nume.Equals(nume) && d.IDInreg.Equals(id_inreg)).First();
 
+                return diag.IDDiagnostic;
+         
+
+            }
+        }
+
+        //nu faceti insert in Tratament --deocamdata da eroare
+        public bool insert_Tratament(Guid id_diagnostic, string med, string mod_admin)
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                
+                    var id_mod = db.Mod_Administarea
+                        .Where(m => m.Mod.Equals(mod_admin)).
+                        Select(m => m.IDMod).First();
+
+                    var tratament = new Data_Layer.Tratament()
+                    {
+                        IDTratament = Guid.NewGuid(),
+                        IDDiagnostic = id_diagnostic,
+                        Medicament = med,
+                        IDMod = id_mod
+                    };
+
+                    db.Trataments.Add(tratament);
+                    db.SaveChanges();
+                    return true;
+              
+               
             }
         }
 
@@ -115,6 +197,43 @@ namespace Aplicatie_medicala
                 return list;
 
             }
+        }
+
+        public List<string> get_ListaMod_Administare()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var mod = from m in db.Mod_Administarea
+                          select m.Mod;
+
+
+                List<string> list = new List<string>();
+
+                foreach (var item in mod)
+                    list.Add(item.TrimEnd());
+
+                return list;
+
+            }
+        }
+
+        public List<string> get_ListaDataInternare()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var dates = from r in db.Internari_Externari
+                            select r.Data_internare;
+
+
+                List<string> list = new List<string>();
+
+                foreach (var item in dates)
+                    list.Add(item.ToString());
+
+                return list;
+
+            }
+ 
         }
         //lista categorii
         public List<string> get_ListaCategorii()

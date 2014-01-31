@@ -24,6 +24,8 @@
         <AssociationConnector Association="Aplicatie_medicalaModel.FK_Personal_Sectii" ManuallyRouted="false" />
         <AssociationConnector Association="Aplicatie_medicalaModel.Categ_Perm" ManuallyRouted="false" />
         <AssociationConnector Association="Aplicatie_medicalaModel.FK_Internari_Externari_Sectii" />
+        <EntityTypeShape EntityType="Aplicatie_medicalaModel.Mod_Administarea" Width="1.5" PointX="10.5" PointY="7.75" />
+        <AssociationConnector Association="Aplicatie_medicalaModel.FK_Tratament_Mod_Administrarea" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

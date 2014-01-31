@@ -32,6 +32,29 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tbPacienti = new System.Windows.Forms.TabPage();
+            this.tabSeePacienti = new System.Windows.Forms.TabControl();
+            this.tabViewPacienti = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgDiagnostic = new System.Windows.Forms.DataGridView();
+            this.dgPacienti = new System.Windows.Forms.DataGridView();
+            this.tabAddPacienti = new System.Windows.Forms.TabPage();
+            this.btnAddDiag = new System.Windows.Forms.Button();
+            this.btnAddPacient = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.chboxInternat = new System.Windows.Forms.CheckBox();
+            this.txbVarsta_Pacient = new System.Windows.Forms.TextBox();
+            this.txbEmail_Pacient = new System.Windows.Forms.TextBox();
+            this.txbTelefon_Pacient = new System.Windows.Forms.TextBox();
+            this.txbAdresa_Pacient = new System.Windows.Forms.TextBox();
+            this.txbPrenume_Pacient = new System.Windows.Forms.TextBox();
+            this.txbNume_Pacient = new System.Windows.Forms.TextBox();
+            this.txbCNP_Pacient = new System.Windows.Forms.TextBox();
             this.tabDetalii = new System.Windows.Forms.TabControl();
             this.tbCauta = new System.Windows.Forms.TabPage();
             this.btnCauta = new System.Windows.Forms.Button();
@@ -56,7 +79,7 @@
             this.tbDiagnostic = new System.Windows.Forms.TabPage();
             this.btnAddMed = new System.Windows.Forms.Button();
             this.btnTermina = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chbModAdmin = new System.Windows.Forms.CheckedListBox();
             this.txbMedicament = new System.Windows.Forms.TextBox();
             this.txbDiagnostic = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -67,6 +90,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAddPersonal = new System.Windows.Forms.Button();
             this.btnCautaPers = new System.Windows.Forms.Button();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.cmbSectiePers = new System.Windows.Forms.ComboBox();
@@ -83,33 +107,14 @@
             this.lblIesi = new System.Windows.Forms.Label();
             this.ctxmRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reimprospatareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAddPersonal = new System.Windows.Forms.Button();
-            this.tabSeePacienti = new System.Windows.Forms.TabControl();
-            this.tabViewPacienti = new System.Windows.Forms.TabPage();
-            this.tabAddPacienti = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dgDiagnostic = new System.Windows.Forms.DataGridView();
-            this.dgPacienti = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.chboxInternat = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnAddPacient = new System.Windows.Forms.Button();
-            this.btnAddDiag = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tbPacienti.SuspendLayout();
+            this.tabSeePacienti.SuspendLayout();
+            this.tabViewPacienti.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDiagnostic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).BeginInit();
+            this.tabAddPacienti.SuspendLayout();
             this.tabDetalii.SuspendLayout();
             this.tbCauta.SuspendLayout();
             this.tbTratament.SuspendLayout();
@@ -120,11 +125,6 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).BeginInit();
             this.ctxmRefresh.SuspendLayout();
-            this.tabSeePacienti.SuspendLayout();
-            this.tabViewPacienti.SuspendLayout();
-            this.tabAddPacienti.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDiagnostic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -162,6 +162,261 @@
             this.tbPacienti.TabIndex = 0;
             this.tbPacienti.Text = "Pacienti";
             this.tbPacienti.UseVisualStyleBackColor = true;
+            // 
+            // tabSeePacienti
+            // 
+            this.tabSeePacienti.Controls.Add(this.tabViewPacienti);
+            this.tabSeePacienti.Controls.Add(this.tabAddPacienti);
+            this.tabSeePacienti.Location = new System.Drawing.Point(25, 6);
+            this.tabSeePacienti.Name = "tabSeePacienti";
+            this.tabSeePacienti.SelectedIndex = 0;
+            this.tabSeePacienti.Size = new System.Drawing.Size(879, 289);
+            this.tabSeePacienti.TabIndex = 4;
+            // 
+            // tabViewPacienti
+            // 
+            this.tabViewPacienti.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
+            this.tabViewPacienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabViewPacienti.Controls.Add(this.label7);
+            this.tabViewPacienti.Controls.Add(this.dgDiagnostic);
+            this.tabViewPacienti.Controls.Add(this.dgPacienti);
+            this.tabViewPacienti.Location = new System.Drawing.Point(4, 22);
+            this.tabViewPacienti.Name = "tabViewPacienti";
+            this.tabViewPacienti.Padding = new System.Windows.Forms.Padding(3);
+            this.tabViewPacienti.Size = new System.Drawing.Size(871, 263);
+            this.tabViewPacienti.TabIndex = 0;
+            this.tabViewPacienti.Text = "Vizualizare";
+            this.tabViewPacienti.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.label7.Location = new System.Drawing.Point(449, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(182, 18);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Pacientul ... sufera de: ";
+            // 
+            // dgDiagnostic
+            // 
+            this.dgDiagnostic.AllowUserToAddRows = false;
+            this.dgDiagnostic.AllowUserToDeleteRows = false;
+            this.dgDiagnostic.AllowUserToResizeRows = false;
+            this.dgDiagnostic.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgDiagnostic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDiagnostic.Location = new System.Drawing.Point(452, 54);
+            this.dgDiagnostic.MultiSelect = false;
+            this.dgDiagnostic.Name = "dgDiagnostic";
+            this.dgDiagnostic.ReadOnly = true;
+            this.dgDiagnostic.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDiagnostic.Size = new System.Drawing.Size(406, 203);
+            this.dgDiagnostic.TabIndex = 5;
+            // 
+            // dgPacienti
+            // 
+            this.dgPacienti.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgPacienti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPacienti.Location = new System.Drawing.Point(6, 6);
+            this.dgPacienti.Name = "dgPacienti";
+            this.dgPacienti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPacienti.Size = new System.Drawing.Size(406, 251);
+            this.dgPacienti.TabIndex = 4;
+            this.dgPacienti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPacienti_CellContentClick);
+            // 
+            // tabAddPacienti
+            // 
+            this.tabAddPacienti.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
+            this.tabAddPacienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAddPacienti.Controls.Add(this.btnAddDiag);
+            this.tabAddPacienti.Controls.Add(this.btnAddPacient);
+            this.tabAddPacienti.Controls.Add(this.label22);
+            this.tabAddPacienti.Controls.Add(this.label21);
+            this.tabAddPacienti.Controls.Add(this.label20);
+            this.tabAddPacienti.Controls.Add(this.label19);
+            this.tabAddPacienti.Controls.Add(this.label18);
+            this.tabAddPacienti.Controls.Add(this.label17);
+            this.tabAddPacienti.Controls.Add(this.label16);
+            this.tabAddPacienti.Controls.Add(this.chboxInternat);
+            this.tabAddPacienti.Controls.Add(this.txbVarsta_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbEmail_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbTelefon_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbAdresa_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbPrenume_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbNume_Pacient);
+            this.tabAddPacienti.Controls.Add(this.txbCNP_Pacient);
+            this.tabAddPacienti.Location = new System.Drawing.Point(4, 22);
+            this.tabAddPacienti.Name = "tabAddPacienti";
+            this.tabAddPacienti.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAddPacienti.Size = new System.Drawing.Size(871, 263);
+            this.tabAddPacienti.TabIndex = 1;
+            this.tabAddPacienti.Text = "Adaugare";
+            this.tabAddPacienti.UseVisualStyleBackColor = true;
+            // 
+            // btnAddDiag
+            // 
+            this.btnAddDiag.Location = new System.Drawing.Point(443, 213);
+            this.btnAddDiag.Name = "btnAddDiag";
+            this.btnAddDiag.Size = new System.Drawing.Size(278, 23);
+            this.btnAddDiag.TabIndex = 16;
+            this.btnAddDiag.Text = "Adaugare diagnostic";
+            this.btnAddDiag.UseVisualStyleBackColor = true;
+            this.btnAddDiag.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnAddPacient
+            // 
+            this.btnAddPacient.Location = new System.Drawing.Point(109, 213);
+            this.btnAddPacient.Name = "btnAddPacient";
+            this.btnAddPacient.Size = new System.Drawing.Size(278, 23);
+            this.btnAddPacient.TabIndex = 15;
+            this.btnAddPacient.Text = "Adaugare pacient";
+            this.btnAddPacient.UseVisualStyleBackColor = true;
+            this.btnAddPacient.Click += new System.EventHandler(this.btnAddPacient_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label22.Location = new System.Drawing.Point(424, 115);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 20);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Varsta";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(424, 70);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(59, 20);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "E-mail";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(424, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(69, 20);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Telefon";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label19.Location = new System.Drawing.Point(58, 161);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 20);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "Adresa";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(58, 115);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 20);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Prenume";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label17.Location = new System.Drawing.Point(72, 70);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 20);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Nume";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label16.Location = new System.Drawing.Point(72, 29);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 20);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "CNP";
+            // 
+            // chboxInternat
+            // 
+            this.chboxInternat.AutoSize = true;
+            this.chboxInternat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chboxInternat.Location = new System.Drawing.Point(560, 163);
+            this.chboxInternat.Name = "chboxInternat";
+            this.chboxInternat.Size = new System.Drawing.Size(92, 24);
+            this.chboxInternat.TabIndex = 7;
+            this.chboxInternat.Text = "Internat";
+            this.chboxInternat.UseVisualStyleBackColor = true;
+            // 
+            // txbVarsta_Pacient
+            // 
+            this.txbVarsta_Pacient.Location = new System.Drawing.Point(524, 117);
+            this.txbVarsta_Pacient.Name = "txbVarsta_Pacient";
+            this.txbVarsta_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbVarsta_Pacient.TabIndex = 6;
+            // 
+            // txbEmail_Pacient
+            // 
+            this.txbEmail_Pacient.Location = new System.Drawing.Point(524, 72);
+            this.txbEmail_Pacient.Name = "txbEmail_Pacient";
+            this.txbEmail_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbEmail_Pacient.TabIndex = 5;
+            // 
+            // txbTelefon_Pacient
+            // 
+            this.txbTelefon_Pacient.Location = new System.Drawing.Point(524, 29);
+            this.txbTelefon_Pacient.Name = "txbTelefon_Pacient";
+            this.txbTelefon_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbTelefon_Pacient.TabIndex = 4;
+            // 
+            // txbAdresa_Pacient
+            // 
+            this.txbAdresa_Pacient.Location = new System.Drawing.Point(153, 163);
+            this.txbAdresa_Pacient.Name = "txbAdresa_Pacient";
+            this.txbAdresa_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbAdresa_Pacient.TabIndex = 3;
+            // 
+            // txbPrenume_Pacient
+            // 
+            this.txbPrenume_Pacient.Location = new System.Drawing.Point(153, 117);
+            this.txbPrenume_Pacient.Name = "txbPrenume_Pacient";
+            this.txbPrenume_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbPrenume_Pacient.TabIndex = 2;
+            // 
+            // txbNume_Pacient
+            // 
+            this.txbNume_Pacient.Location = new System.Drawing.Point(153, 72);
+            this.txbNume_Pacient.Name = "txbNume_Pacient";
+            this.txbNume_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbNume_Pacient.TabIndex = 1;
+            // 
+            // txbCNP_Pacient
+            // 
+            this.txbCNP_Pacient.Location = new System.Drawing.Point(153, 29);
+            this.txbCNP_Pacient.Name = "txbCNP_Pacient";
+            this.txbCNP_Pacient.Size = new System.Drawing.Size(160, 20);
+            this.txbCNP_Pacient.TabIndex = 0;
             // 
             // tabDetalii
             // 
@@ -315,6 +570,7 @@
             this.btnAdd.Text = "Adauga";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Visible = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSkip
             // 
@@ -388,7 +644,7 @@
             this.tbDiagnostic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tbDiagnostic.Controls.Add(this.btnAddMed);
             this.tbDiagnostic.Controls.Add(this.btnTermina);
-            this.tbDiagnostic.Controls.Add(this.checkedListBox1);
+            this.tbDiagnostic.Controls.Add(this.chbModAdmin);
             this.tbDiagnostic.Controls.Add(this.txbMedicament);
             this.tbDiagnostic.Controls.Add(this.txbDiagnostic);
             this.tbDiagnostic.Controls.Add(this.label10);
@@ -410,6 +666,7 @@
             this.btnAddMed.TabIndex = 9;
             this.btnAddMed.Text = "Adauga medicament";
             this.btnAddMed.UseVisualStyleBackColor = true;
+            this.btnAddMed.Click += new System.EventHandler(this.btnAddMed_Click);
             // 
             // btnTermina
             // 
@@ -420,13 +677,13 @@
             this.btnTermina.Text = "Termina";
             this.btnTermina.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // chbModAdmin
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(221, 87);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(166, 94);
-            this.checkedListBox1.TabIndex = 7;
+            this.chbModAdmin.FormattingEnabled = true;
+            this.chbModAdmin.Location = new System.Drawing.Point(221, 87);
+            this.chbModAdmin.Name = "chbModAdmin";
+            this.chbModAdmin.Size = new System.Drawing.Size(166, 94);
+            this.chbModAdmin.TabIndex = 7;
             // 
             // txbMedicament
             // 
@@ -542,6 +799,16 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Cautare";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddPersonal
+            // 
+            this.btnAddPersonal.Location = new System.Drawing.Point(206, 260);
+            this.btnAddPersonal.Name = "btnAddPersonal";
+            this.btnAddPersonal.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPersonal.TabIndex = 16;
+            this.btnAddPersonal.Text = "Adauga";
+            this.btnAddPersonal.UseVisualStyleBackColor = true;
+            this.btnAddPersonal.Click += new System.EventHandler(this.btnAddPersonal_Click);
             // 
             // btnCautaPers
             // 
@@ -693,269 +960,6 @@
             this.reimprospatareToolStripMenuItem.Text = "Reimprospatare";
             this.reimprospatareToolStripMenuItem.Click += new System.EventHandler(this.reimprospatareToolStripMenuItem_Click);
             // 
-            // btnAddPersonal
-            // 
-            this.btnAddPersonal.Location = new System.Drawing.Point(206, 260);
-            this.btnAddPersonal.Name = "btnAddPersonal";
-            this.btnAddPersonal.Size = new System.Drawing.Size(75, 23);
-            this.btnAddPersonal.TabIndex = 16;
-            this.btnAddPersonal.Text = "Adauga";
-            this.btnAddPersonal.UseVisualStyleBackColor = true;
-            // 
-            // tabSeePacienti
-            // 
-            this.tabSeePacienti.Controls.Add(this.tabViewPacienti);
-            this.tabSeePacienti.Controls.Add(this.tabAddPacienti);
-            this.tabSeePacienti.Location = new System.Drawing.Point(25, 6);
-            this.tabSeePacienti.Name = "tabSeePacienti";
-            this.tabSeePacienti.SelectedIndex = 0;
-            this.tabSeePacienti.Size = new System.Drawing.Size(879, 289);
-            this.tabSeePacienti.TabIndex = 4;
-            // 
-            // tabViewPacienti
-            // 
-            this.tabViewPacienti.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
-            this.tabViewPacienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabViewPacienti.Controls.Add(this.label7);
-            this.tabViewPacienti.Controls.Add(this.dgDiagnostic);
-            this.tabViewPacienti.Controls.Add(this.dgPacienti);
-            this.tabViewPacienti.Location = new System.Drawing.Point(4, 22);
-            this.tabViewPacienti.Name = "tabViewPacienti";
-            this.tabViewPacienti.Padding = new System.Windows.Forms.Padding(3);
-            this.tabViewPacienti.Size = new System.Drawing.Size(871, 263);
-            this.tabViewPacienti.TabIndex = 0;
-            this.tabViewPacienti.Text = "Vizualizare";
-            this.tabViewPacienti.UseVisualStyleBackColor = true;
-            // 
-            // tabAddPacienti
-            // 
-            this.tabAddPacienti.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
-            this.tabAddPacienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabAddPacienti.Controls.Add(this.btnAddDiag);
-            this.tabAddPacienti.Controls.Add(this.btnAddPacient);
-            this.tabAddPacienti.Controls.Add(this.label22);
-            this.tabAddPacienti.Controls.Add(this.label21);
-            this.tabAddPacienti.Controls.Add(this.label20);
-            this.tabAddPacienti.Controls.Add(this.label19);
-            this.tabAddPacienti.Controls.Add(this.label18);
-            this.tabAddPacienti.Controls.Add(this.label17);
-            this.tabAddPacienti.Controls.Add(this.label16);
-            this.tabAddPacienti.Controls.Add(this.chboxInternat);
-            this.tabAddPacienti.Controls.Add(this.textBox7);
-            this.tabAddPacienti.Controls.Add(this.textBox6);
-            this.tabAddPacienti.Controls.Add(this.textBox5);
-            this.tabAddPacienti.Controls.Add(this.textBox4);
-            this.tabAddPacienti.Controls.Add(this.textBox3);
-            this.tabAddPacienti.Controls.Add(this.textBox2);
-            this.tabAddPacienti.Controls.Add(this.textBox1);
-            this.tabAddPacienti.Location = new System.Drawing.Point(4, 22);
-            this.tabAddPacienti.Name = "tabAddPacienti";
-            this.tabAddPacienti.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAddPacienti.Size = new System.Drawing.Size(871, 263);
-            this.tabAddPacienti.TabIndex = 1;
-            this.tabAddPacienti.Text = "Adaugare";
-            this.tabAddPacienti.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.label7.Location = new System.Drawing.Point(449, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(182, 18);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Pacientul ... sufera de: ";
-            // 
-            // dgDiagnostic
-            // 
-            this.dgDiagnostic.AllowUserToAddRows = false;
-            this.dgDiagnostic.AllowUserToDeleteRows = false;
-            this.dgDiagnostic.AllowUserToResizeRows = false;
-            this.dgDiagnostic.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgDiagnostic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDiagnostic.Location = new System.Drawing.Point(452, 54);
-            this.dgDiagnostic.MultiSelect = false;
-            this.dgDiagnostic.Name = "dgDiagnostic";
-            this.dgDiagnostic.ReadOnly = true;
-            this.dgDiagnostic.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDiagnostic.Size = new System.Drawing.Size(406, 203);
-            this.dgDiagnostic.TabIndex = 5;
-            // 
-            // dgPacienti
-            // 
-            this.dgPacienti.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgPacienti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPacienti.Location = new System.Drawing.Point(6, 6);
-            this.dgPacienti.Name = "dgPacienti";
-            this.dgPacienti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPacienti.Size = new System.Drawing.Size(406, 251);
-            this.dgPacienti.TabIndex = 4;
-            this.dgPacienti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPacienti_CellContentClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(153, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(153, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(153, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(153, 163);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(524, 29);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(160, 20);
-            this.textBox5.TabIndex = 4;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(524, 72);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(160, 20);
-            this.textBox6.TabIndex = 5;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(524, 117);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(160, 20);
-            this.textBox7.TabIndex = 6;
-            // 
-            // chboxInternat
-            // 
-            this.chboxInternat.AutoSize = true;
-            this.chboxInternat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.chboxInternat.Location = new System.Drawing.Point(560, 163);
-            this.chboxInternat.Name = "chboxInternat";
-            this.chboxInternat.Size = new System.Drawing.Size(92, 24);
-            this.chboxInternat.TabIndex = 7;
-            this.chboxInternat.Text = "Internat";
-            this.chboxInternat.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(72, 29);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 20);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "CNP";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(72, 70);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 20);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "Nume";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(58, 115);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 20);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Prenume";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(58, 161);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 20);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "Adresa";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(424, 27);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(69, 20);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Telefon";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(424, 70);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 20);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "E-mail";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(424, 115);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(62, 20);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Varsta";
-            // 
-            // btnAddPacient
-            // 
-            this.btnAddPacient.Location = new System.Drawing.Point(109, 213);
-            this.btnAddPacient.Name = "btnAddPacient";
-            this.btnAddPacient.Size = new System.Drawing.Size(278, 23);
-            this.btnAddPacient.TabIndex = 15;
-            this.btnAddPacient.Text = "Adaugare pacient";
-            this.btnAddPacient.UseVisualStyleBackColor = true;
-            // 
-            // btnAddDiag
-            // 
-            this.btnAddDiag.Location = new System.Drawing.Point(443, 213);
-            this.btnAddDiag.Name = "btnAddDiag";
-            this.btnAddDiag.Size = new System.Drawing.Size(278, 23);
-            this.btnAddDiag.TabIndex = 16;
-            this.btnAddDiag.Text = "Adaugare diagnostic";
-            this.btnAddDiag.UseVisualStyleBackColor = true;
-            this.btnAddDiag.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -975,6 +979,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tbPacienti.ResumeLayout(false);
+            this.tabSeePacienti.ResumeLayout(false);
+            this.tabViewPacienti.ResumeLayout(false);
+            this.tabViewPacienti.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDiagnostic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).EndInit();
+            this.tabAddPacienti.ResumeLayout(false);
+            this.tabAddPacienti.PerformLayout();
             this.tabDetalii.ResumeLayout(false);
             this.tbCauta.ResumeLayout(false);
             this.tbCauta.PerformLayout();
@@ -990,13 +1001,6 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).EndInit();
             this.ctxmRefresh.ResumeLayout(false);
-            this.tabSeePacienti.ResumeLayout(false);
-            this.tabViewPacienti.ResumeLayout(false);
-            this.tabViewPacienti.PerformLayout();
-            this.tabAddPacienti.ResumeLayout(false);
-            this.tabAddPacienti.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDiagnostic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPacienti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1036,7 +1040,7 @@
         private System.Windows.Forms.ToolStripMenuItem reimprospatareToolStripMenuItem;
         private System.Windows.Forms.Button btnAddMed;
         private System.Windows.Forms.Button btnTermina;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox chbModAdmin;
         private System.Windows.Forms.TextBox txbMedicament;
         private System.Windows.Forms.TextBox txbDiagnostic;
         private System.Windows.Forms.Label label10;
@@ -1075,12 +1079,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox chboxInternat;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbVarsta_Pacient;
+        private System.Windows.Forms.TextBox txbEmail_Pacient;
+        private System.Windows.Forms.TextBox txbTelefon_Pacient;
+        private System.Windows.Forms.TextBox txbAdresa_Pacient;
+        private System.Windows.Forms.TextBox txbPrenume_Pacient;
+        private System.Windows.Forms.TextBox txbNume_Pacient;
+        private System.Windows.Forms.TextBox txbCNP_Pacient;
     }
 }
