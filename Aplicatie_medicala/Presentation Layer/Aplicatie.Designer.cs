@@ -87,7 +87,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbPersonal = new System.Windows.Forms.TabPage();
             this.lblOperatii = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgOperatii = new System.Windows.Forms.DataGridView();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnAddPersonal = new System.Windows.Forms.Button();
@@ -120,7 +120,7 @@
             this.tbTratament.SuspendLayout();
             this.tbDiagnostic.SuspendLayout();
             this.tbPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOperatii)).BeginInit();
             this.tabControl3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonal)).BeginInit();
@@ -606,7 +606,7 @@
             this.chbxAdministrare.Name = "chbxAdministrare";
             this.chbxAdministrare.Size = new System.Drawing.Size(120, 94);
             this.chbxAdministrare.TabIndex = 5;
-            // 
+             // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -737,7 +737,7 @@
             this.tbPersonal.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tbPersonal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tbPersonal.Controls.Add(this.lblOperatii);
-            this.tbPersonal.Controls.Add(this.dataGridView1);
+            this.tbPersonal.Controls.Add(this.dgOperatii);
             this.tbPersonal.Controls.Add(this.tabControl3);
             this.tbPersonal.Location = new System.Drawing.Point(4, 22);
             this.tbPersonal.Name = "tbPersonal";
@@ -758,13 +758,13 @@
             this.lblOperatii.TabIndex = 11;
             this.lblOperatii.Text = "Operatii asupra bazei de date efectuate de    : \r\n";
             // 
-            // dataGridView1
+            // dgOperatii
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(498, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(377, 195);
-            this.dataGridView1.TabIndex = 10;
+            this.dgOperatii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOperatii.Location = new System.Drawing.Point(498, 54);
+            this.dgOperatii.Name = "dgOperatii";
+            this.dgOperatii.Size = new System.Drawing.Size(377, 195);
+            this.dgOperatii.TabIndex = 10;
             // 
             // tabControl3
             // 
@@ -864,6 +864,7 @@
             this.dgPersonal.Name = "dgPersonal";
             this.dgPersonal.Size = new System.Drawing.Size(355, 195);
             this.dgPersonal.TabIndex = 9;
+            this.dgPersonal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPersonal_CellClick);
             this.dgPersonal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPersonal_CellMouseClick);
             // 
             // label15
@@ -995,7 +996,7 @@
             this.tbDiagnostic.PerformLayout();
             this.tbPersonal.ResumeLayout(false);
             this.tbPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOperatii)).EndInit();
             this.tabControl3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -1061,7 +1062,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblOperatii;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgOperatii;
         private System.Windows.Forms.Button btnAddPersonal;
         private System.Windows.Forms.TabControl tabSeePacienti;
         private System.Windows.Forms.TabPage tabViewPacienti;

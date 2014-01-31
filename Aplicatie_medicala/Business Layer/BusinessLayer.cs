@@ -68,7 +68,10 @@ namespace Aplicatie_medicala
      {
          return objdl.get_ListaMod_Administare();
      }
-
+     public List<string> get_Listadiag()
+     {
+         return objdl.get_Listadiag();
+     }
      public bool insert_Personal(string cnp, string categ, string nume, string prenume, string adresa, string tel, string sectie, DateTime data_ang, DateTime data_inc, float salariu, string parola)
      {
          if (cnp == "" || categ == "" || nume == "" || prenume == "" || sectie == "")
@@ -93,6 +96,12 @@ namespace Aplicatie_medicala
      {
          return
               objdl.table_Personal();
+     }
+
+     public DataTable table_Administrare(string CNP)
+     {
+         return objdl.table_Administrare(CNP);
+
      }
 
      public int get_idcateg(string categorie)

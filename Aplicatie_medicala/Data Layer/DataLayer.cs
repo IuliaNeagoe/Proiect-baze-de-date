@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Transactions;
 using System.Data.Entity;
+using System.Data.Objects;
 
 namespace Aplicatie_medicala
 {
@@ -139,16 +141,16 @@ namespace Aplicatie_medicala
                         .Where(m => m.Mod.Equals(mod_admin)).
                         Select(m => m.IDMod).First();
 
-                    var tratament = new Data_Layer.Tratament()
+                    Data_Layer.Tratament tratament = new Data_Layer.Tratament()
                     {
                         IDTratament = Guid.NewGuid(),
                         IDDiagnostic = id_diagnostic,
                         Medicament = med,
                         IDMod = id_mod
                     };
-
-                    db.Trataments.Add(tratament);
-                    db.SaveChanges();
+                 db.Trataments.Add(tratament);
+                  db.SaveChanges();
+               
                     return true;
               
                
@@ -198,7 +200,24 @@ namespace Aplicatie_medicala
 
             }
         }
+        //lista diagnostice
+        public List<string> get_Listadiag()
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                var diagnostice = from d in db.Diagnostics
+                             select d;
 
+
+                List<string> list = new List<string>();
+
+                foreach (var item in diagnostice)
+                    list.Add(item.Nume.TrimEnd());
+
+                return list;
+
+            }
+        }
         public List<string> get_ListaMod_Administare()
         {
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
@@ -261,7 +280,7 @@ namespace Aplicatie_medicala
 
                 foreach (var item in categ)
                 {
-                    if (item.Nume == categorie)
+                    if (item.Nume.TrimEnd() == categorie)
                         id = item.IDCateg;
 
                 }
@@ -283,7 +302,7 @@ namespace Aplicatie_medicala
 
                 foreach (var item in sectii)
                 {
-                    if (item.Nume == sectie)
+                    if (item.Nume.TrimEnd() == sectie)
                         id = item.IDSectie;
 
                 }
@@ -331,6 +350,59 @@ namespace Aplicatie_medicala
                     row["Data_incheiere"] = item.Data_incheiere;
                     row["Salariu"] = item.Salariu;
 
+                    result.Rows.Add(row);
+                }
+
+                return result;
+            }
+
+        }
+        //tabela Administrare
+        public DataTable table_Administrare(string CNP)
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+
+
+                var operatie = from o in db.Administrares
+                               where o.CNP_personal == CNP
+                               select o;
+                Guid aux;
+               
+                DataTable result = new DataTable();
+               result.Columns.Add("Nume_Pacient", typeof(string));
+                result.Columns.Add("Data_ora", typeof(DateTime));
+                result.Columns.Add("Medicament", typeof(string));
+               
+                foreach (var item in operatie)
+                { DataRow row = result.NewRow();
+                    //caut medicamentul
+                    var med = from m in db.Trataments
+                              join e in db.Administrares on m.IDTratament equals e.IDTratament
+                              where e.IDTratament == item.IDTratament 
+                              select new { me = m.Medicament };
+                    //caut pacientul
+                    var iddiag = from d in db.Diagnostics
+                                 join e in db.Trataments on d.IDDiagnostic equals e.IDDiagnostic
+                                 where e.IDTratament == item.IDTratament
+                                 select new { inreg=d.IDInreg};
+                    foreach (var ite in iddiag)
+                    {
+                        var cnp = from i in db.Internari_Externari
+                                  join e in db.Diagnostics on i.IDInreg equals e.IDInreg
+                                  where e.IDInreg==ite.inreg
+                                  select new { cn=i.CNP};
+                        foreach (var c in cnp)
+                            row["Nume_Pacient"] = c.cn;
+                         
+                    }
+                 //   medicament = med.ToString();
+
+                   
+                    foreach(var it in med)
+                    row["Medicament"] = it.me;
+                    row["Data_ora"] = item.Data_ora;
+                   
                     result.Rows.Add(row);
                 }
 

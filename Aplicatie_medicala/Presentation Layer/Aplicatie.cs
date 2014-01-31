@@ -60,6 +60,13 @@ namespace Aplicatie_medicala
             {
                 cmbCategorie.Items.Add(categorie);
             }
+
+            //initializare lista diagnostice
+            foreach (var diagnsotic in objbs.get_Listadiag())
+          
+            {
+                cmbDiagnostic.Items.Add(diagnsotic);
+            }
             cmbCategorie.Text = "";
             cmbSectiePers.Text = "";
             //incarca lista cu pacientii de pe sectia user-ului in dgPacienti
@@ -134,11 +141,171 @@ namespace Aplicatie_medicala
                 dgPersonal.CurrentCell = null;
                 var row = dgPersonal.Rows[i];
            
-                if (row.Cells[2].Value.ToString() == txbNumePers.Text)
+                if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text)
                     row.Visible = true;
                 else
                 row.Visible=false;
             }
+
+            //nume si prenume
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd()==txbPrenumePers.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+
+            //nume si categorie
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume si sectie
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+
+            //nume si username
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume, prenume si categ
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume, prenume si sectie
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume,prenume si username
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume,categorie si sectie
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume, categorie si username
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && row.Cells[0].Value.ToString()==txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume,sectie si username
+            if (txbNumePers.Text != "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString()==txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+
+            //nume,prenume,categorie si sectie
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //nume,prenume,categorie si username
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //toate
+            if (txbNumePers.Text != "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[2].Value.ToString().TrimEnd() == txbNumePers.Text && row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
 
             //doar prenumele
             if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
@@ -147,12 +314,96 @@ namespace Aplicatie_medicala
                     dgPersonal.CurrentCell = null;
                     var row = dgPersonal.Rows[i];
 
-                    if (row.Cells[3].Value.ToString() == txbPrenumePers.Text)
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume si categorie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume si sectie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume si  username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume, categorie si sectie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume , categorie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //prenume, sectie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
                         row.Visible = true;
                     else
                         row.Visible = false;
                 }
 
+            //prenume,categorie,sectie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text != "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (row.Cells[3].Value.ToString().TrimEnd() == txbPrenumePers.Text && objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
             //doar categorie
             if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text == "")
                 for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
@@ -165,6 +416,43 @@ namespace Aplicatie_medicala
                     else
                         row.Visible = false;
                 }
+            //categorie si sectie
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //categorie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text == "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //categorie, sectie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text != "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idcateg(cmbCategorie.Text) > 0 && Convert.ToInt32(row.Cells[1].Value) == objbs.get_idcateg(cmbCategorie.Text) && objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+         
 
             //doar sectie
             if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text == "")
@@ -174,6 +462,18 @@ namespace Aplicatie_medicala
                     var row = dgPersonal.Rows[i];
 
                     if (objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            //sectie si username
+            if (txbNumePers.Text == "" && txbPrenumePers.Text == "" && cmbCategorie.Text == "" && cmbSectiePers.Text != "" && txbUsername.Text != "")
+                for (int i = 0; i < dgPersonal.Rows.Count - 1; i++)
+                {
+                    dgPersonal.CurrentCell = null;
+                    var row = dgPersonal.Rows[i];
+
+                    if (objbs.get_idsectie(cmbSectiePers.Text) > 0 && Convert.ToInt32(row.Cells[6].Value) == objbs.get_idsectie(cmbSectiePers.Text) && row.Cells[0].Value.ToString() == txbUsername.Text)
                         row.Visible = true;
                     else
                         row.Visible = false;
@@ -259,6 +559,16 @@ namespace Aplicatie_medicala
            objbs.insert_Diagnostic_Tratament(txbDiagnostic.Text,txbMedicament.Text, cnp_pacient, chbxAdministrare.CheckedItems.ToString());
           //  objbs.insert_Diagnostic_Tratament("Raceala", "Ibuprofen", "1780925376859", "1/zi");
         }
+
+        private void dgPersonal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgOperatii.DataSource = objbs.table_Administrare(dgPersonal.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+      
+     
+
+       
 
 
     }

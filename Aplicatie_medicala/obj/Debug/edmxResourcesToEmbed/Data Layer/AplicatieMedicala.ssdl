@@ -70,7 +70,7 @@
     </AssociationSet>
   </EntityContainer>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Administrare">
     <Key>
@@ -83,7 +83,7 @@
     <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\HP\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Categ_Perm">
     <Key>
@@ -363,7 +363,7 @@
     <Parameter Name="adr" Type="char" Mode="In" />
     <Parameter Name="dataa" Type="date" Mode="In" />
     <Parameter Name="datai" Type="date" Mode="In" />
-    <Parameter Name="parola" Type="char" Mode="In" />
+    <Parameter Name="parola" Type="nvarchar" Mode="In" />
     <Parameter Name="idcat" Type="int" Mode="In" />
     <Parameter Name="idsec" Type="int" Mode="In" />
     <Parameter Name="sal" Type="float" Mode="In" />
