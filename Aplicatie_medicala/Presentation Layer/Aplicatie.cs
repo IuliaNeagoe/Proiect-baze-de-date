@@ -15,6 +15,8 @@ namespace Aplicatie_medicala
         public BusinessLayer objbs = new BusinessLayer();
         public string cnp;
         public string cnp_pacient;
+        public Parola f;
+        public string parola;
         public Aplicatie()
         {
            
@@ -24,6 +26,7 @@ namespace Aplicatie_medicala
             InitializeComponent();
             initComp();
             lblUser.Text = "Buna ziua, " + user;
+            btnAddPersonal.Enabled = false;
             this.cnp = cnp;
 
             //initializare lista medici
@@ -126,7 +129,7 @@ namespace Aplicatie_medicala
 
         private void dgPersonal_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //la click pe un rand se afiseaza pentru persoana respectiva in dgOperatii ce operatii a efectuat si e posibil revert-ul
+            //la click pe un rand se afiseaza pentru persoana respectiva in dgOperatii ce operatii a efectuat
 
         }
 
@@ -520,8 +523,22 @@ namespace Aplicatie_medicala
         {
             //apelarea functiei de adaugare Personal
            // if (objbs.insert_Personal(txbNumePers.Text,txbPrenumePers.Text,))...to be continued by Iulia :)
+            
+            //am completat :P, doar sa verifici u ca eu nu pot umbla la baza de date, imi stii problema ;)
+            
             DateTime now=DateTime.Now;
-            DateTime later=DateTime.MaxValue;
+            DateTime later = DateTime.MaxValue;
+            if (objbs.insert_Personal(txbAddCNP.Text, cmbAddCateg.Text, txbAddNume.Text, txbAddPrenume.Text,
+                txbAddAdresa.Text, txbAddTEl.Text, cmbAddSectie.SelectedItem.ToString(), now, later, (float)cmbAddSalariu.
+                SelectedItem, parola))
+            {
+                MessageBox.Show("Membrul personalului a fost inserat cu succes! ");
+
+            }
+            else
+                MessageBox.Show("Membrul personalului nu a fost inserat cu succes! ");
+            
+            
             //try
             //{
             //    objbs.insert_Personal("1871225323741", "Medic", "Popescu", "David", "Bucuresti, nr.15", "0753432761", "Pediatrie", now, later, 4000, "david");
@@ -530,6 +547,7 @@ namespace Aplicatie_medicala
             //{
             //    MessageBox.Show(ex.Message.ToString());
             //}
+            Arata_personal(false);
         }
 
         private void btnAddPacient_Click(object sender, EventArgs e)
@@ -548,7 +566,10 @@ namespace Aplicatie_medicala
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            tabDetalii.SelectTab(tbDiagnostic);
 
+            // Mihaela: pt cnp-ul selectat prin dgPacienti.SelectedRows[0].Cells[0].Value trebuie adaugat diagnostic si medicament
+            
         }
 
         private void btnAddMed_Click(object sender, EventArgs e)
@@ -565,10 +586,71 @@ namespace Aplicatie_medicala
             dgOperatii.DataSource = objbs.table_Administrare(dgPersonal.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
 
-      
-     
+        private void Arata_personal(bool vizibil)
+        {
+            txbAddCNP.Visible = vizibil;
+            txbAddAdresa.Visible = vizibil;
+            txbAddTEl.Visible = vizibil;
+            txbAddNume.Visible = vizibil;
+            txbAddPrenume.Visible = vizibil;
+            cmbAddCateg.Visible = vizibil;
+            cmbAddSalariu.Visible = vizibil;
+            cmbAddSectie.Visible = vizibil;
+            label23.Visible = vizibil;
+            label24.Visible = vizibil;
+            label25.Visible = vizibil;
+            label26.Visible = vizibil;
+            label27.Visible = vizibil;
+            label28.Visible = vizibil;
+            label29.Visible = vizibil;
+            label31.Visible = vizibil;
+            btnAddPass.Visible = vizibil;
+            btnAddPersonal.Visible = vizibil;
+        }
+        
+        private void btnAddPersVisible_Click(object sender, EventArgs e)
+        {
+            //facem vizibila partea cu adaugarea unui membru al personalului
+            Arata_personal(true);
+            btnAddPersonal.Enabled = false;
+        }
 
-       
+        private void btnAddPass_Click(object sender, EventArgs e)
+        {
+            f = new Parola();
+            f.ShowDialog();
+            if (f.MyReturnValue != null)
+                parola = f.MyReturnValue;
+            btnAddPersonal.Enabled = true;
+        }
+
+        private void actualizareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabMain.SelectTab(tbPacienti);
+            tabSeePacienti.SelectTab(tabAddPacienti);
+            
+            txbCNP_Pacient.Text = dgPacienti.SelectedRows[0].Cells["CNP"].Value.ToString();
+            txbNume_Pacient.Text = dgPacienti.SelectedRows[0].Cells["Nume"].Value.ToString();
+            txbPrenume_Pacient.Text = dgPacienti.SelectedRows[0].Cells["Prenume"].Value.ToString();
+            txbTelefon_Pacient.Text = dgPacienti.SelectedRows[0].Cells["Telefon"].Value.ToString();
+            txbEmail_Pacient.Text = dgPacienti.SelectedRows[0].Cells["Email"].Value.ToString();
+            txbVarsta_Pacient.Text = dgPacienti.SelectedRows[0].Cells["Varsta"].Value.ToString();
+            chboxInternat.Checked = true;
+            chboxInternat.Enabled = false;
+            txbAdresa_Pacient.Text = objbs.GetAdresaPacient(txbCNP_Pacient.Text);
+
+        }
+
+        private void btnActualizarePacient_Click(object sender, EventArgs e)
+        {
+            //Mihaela: nu am mai stat sa fac update-ul, daca ai timp sa.l faci , fa-l u , daca nu cand mai e la mine proiectul il fac
+        }
+
+        private void externareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Mihaela: te rog sa te uiti tu un pic la tine daca poti adauga procedura care am facut=o pentru update ca la mine nu merge
+
+        }
 
 
     }

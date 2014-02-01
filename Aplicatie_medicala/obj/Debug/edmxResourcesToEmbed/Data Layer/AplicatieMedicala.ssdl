@@ -70,7 +70,7 @@
     </AssociationSet>
   </EntityContainer>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'Aplicatie_medicala.dbo.Administrare' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Administrare">
     <Key>
@@ -83,7 +83,7 @@
     <Property Name="CNP_personal" Type="nchar" Nullable="false" MaxLength="13" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\DIANA\DOCUMENTS\GITHUB\PROIECT-BAZE-DE-DATE\APLICATIE_MEDICALA.MDF.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'Aplicatie_medicala.dbo.Categ_Perm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Categ_Perm">
     <Key>
@@ -398,4 +398,8 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Update_Internari_Externari" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="externare" Type="date" Mode="In" />
+    <Parameter Name="cnp" Type="nchar" Mode="In" />
+  </Function>
 </Schema>

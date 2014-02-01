@@ -124,5 +124,9 @@ namespace Aplicatie_medicala
          Guid id_diag = objdl.insert_Diagnostic(cnp_pacient, diagnostic);
          return objdl.insert_Tratament(id_diag, tratament, mod);
      }
+      public string  GetAdresaPacient(string cnp)
+      {
+          return objdl.GetAdresaPacient(cnp);
+      }
     }
 }

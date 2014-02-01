@@ -124,6 +124,10 @@
       <Parameter Name="id_inreg" Mode="In" Type="Guid" />
       <Parameter Name="nume" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="Update_Internari_Externari">
+      <Parameter Name="externare" Mode="In" Type="DateTime" />
+      <Parameter Name="cnp" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Administrare">
     <Key>

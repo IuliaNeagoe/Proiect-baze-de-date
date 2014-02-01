@@ -454,8 +454,9 @@ namespace Aplicatie_medicala
             }
         }
 
-        public DataTable get_detalii_pacient(string cnp) // populare tabela diagnostic pacienti
+        public DataTable get_detalii_pacient(string cnp) 
         {
+            // populare tabela diagnostic pacienti
             using (var db = new Data_Layer.Aplicatie_medicalaContext())
             {
                 var id_inreg = db.Internari_Externari.Where(p => p.CNP.Equals(cnp) && p.Data_externare.Equals(null)).Select(p => p.IDInreg).First();
@@ -478,5 +479,31 @@ namespace Aplicatie_medicala
             }
 
         }
+
+        public string GetAdresaPacient(string cnp)
+        {
+           using (var db = new Data_Layer.Aplicatie_medicalaContext())
+           {
+               var result = db.Pacientis.Where(p=> p.CNP.Equals(cnp)).Select(p=>p.Adresa).First();
+
+               return result;
+           }
+           
+        }
+        public bool Update_internari_externari(string cnp, DateTime externare)
+        {
+            using (var db = new Data_Layer.Aplicatie_medicalaContext())
+            {
+                
+                
+                if (db.SaveChanges() > 0)
+                    return true;
+
+
+
+            }
+            return false;
+        }
+
     }
 }

@@ -38,6 +38,7 @@
             this.dgDiagnostic = new System.Windows.Forms.DataGridView();
             this.dgPacienti = new System.Windows.Forms.DataGridView();
             this.tabAddPacienti = new System.Windows.Forms.TabPage();
+            this.btnActualizarePacient = new System.Windows.Forms.Button();
             this.btnAddDiag = new System.Windows.Forms.Button();
             this.btnAddPacient = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -86,11 +87,29 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbPersonal = new System.Windows.Forms.TabPage();
+            this.btnAddPersVisible = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnAddPass = new System.Windows.Forms.Button();
+            this.cmbAddSalariu = new System.Windows.Forms.ComboBox();
+            this.cmbAddSectie = new System.Windows.Forms.ComboBox();
+            this.cmbAddCateg = new System.Windows.Forms.ComboBox();
+            this.txbAddTEl = new System.Windows.Forms.TextBox();
+            this.txbAddAdresa = new System.Windows.Forms.TextBox();
+            this.txbAddPrenume = new System.Windows.Forms.TextBox();
+            this.txbAddNume = new System.Windows.Forms.TextBox();
+            this.txbAddCNP = new System.Windows.Forms.TextBox();
+            this.btnAddPersonal = new System.Windows.Forms.Button();
             this.lblOperatii = new System.Windows.Forms.Label();
             this.dgOperatii = new System.Windows.Forms.DataGridView();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnAddPersonal = new System.Windows.Forms.Button();
             this.btnCautaPers = new System.Windows.Forms.Button();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.cmbSectiePers = new System.Windows.Forms.ComboBox();
@@ -107,6 +126,8 @@
             this.lblIesi = new System.Windows.Forms.Label();
             this.ctxmRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reimprospatareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.externareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tbPacienti.SuspendLayout();
@@ -132,7 +153,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.exit;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(910, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(906, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 29);
             this.pictureBox1.TabIndex = 0;
@@ -216,19 +237,25 @@
             // 
             // dgPacienti
             // 
+            this.dgPacienti.AllowUserToAddRows = false;
+            this.dgPacienti.AllowUserToDeleteRows = false;
             this.dgPacienti.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgPacienti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPacienti.Location = new System.Drawing.Point(6, 6);
             this.dgPacienti.Name = "dgPacienti";
+            this.dgPacienti.ReadOnly = true;
             this.dgPacienti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPacienti.Size = new System.Drawing.Size(406, 251);
             this.dgPacienti.TabIndex = 4;
             this.dgPacienti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPacienti_CellContentClick);
+            this.dgPacienti.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPacienti_CellContentDoubleClick);
+            this.dgPacienti.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPacienti_CellMouseClick);
             // 
             // tabAddPacienti
             // 
             this.tabAddPacienti.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tabAddPacienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAddPacienti.Controls.Add(this.btnActualizarePacient);
             this.tabAddPacienti.Controls.Add(this.btnAddDiag);
             this.tabAddPacienti.Controls.Add(this.btnAddPacient);
             this.tabAddPacienti.Controls.Add(this.label22);
@@ -254,11 +281,21 @@
             this.tabAddPacienti.Text = "Adaugare";
             this.tabAddPacienti.UseVisualStyleBackColor = true;
             // 
+            // btnActualizarePacient
+            // 
+            this.btnActualizarePacient.Location = new System.Drawing.Point(576, 213);
+            this.btnActualizarePacient.Name = "btnActualizarePacient";
+            this.btnActualizarePacient.Size = new System.Drawing.Size(160, 23);
+            this.btnActualizarePacient.TabIndex = 17;
+            this.btnActualizarePacient.Text = "Actualizare pacient\r\n";
+            this.btnActualizarePacient.UseVisualStyleBackColor = true;
+            this.btnActualizarePacient.Click += new System.EventHandler(this.btnActualizarePacient_Click);
+            // 
             // btnAddDiag
             // 
-            this.btnAddDiag.Location = new System.Drawing.Point(443, 213);
+            this.btnAddDiag.Location = new System.Drawing.Point(358, 213);
             this.btnAddDiag.Name = "btnAddDiag";
-            this.btnAddDiag.Size = new System.Drawing.Size(278, 23);
+            this.btnAddDiag.Size = new System.Drawing.Size(160, 23);
             this.btnAddDiag.TabIndex = 16;
             this.btnAddDiag.Text = "Adaugare diagnostic";
             this.btnAddDiag.UseVisualStyleBackColor = true;
@@ -266,9 +303,9 @@
             // 
             // btnAddPacient
             // 
-            this.btnAddPacient.Location = new System.Drawing.Point(109, 213);
+            this.btnAddPacient.Location = new System.Drawing.Point(138, 213);
             this.btnAddPacient.Name = "btnAddPacient";
-            this.btnAddPacient.Size = new System.Drawing.Size(278, 23);
+            this.btnAddPacient.Size = new System.Drawing.Size(166, 23);
             this.btnAddPacient.TabIndex = 15;
             this.btnAddPacient.Text = "Adaugare pacient";
             this.btnAddPacient.UseVisualStyleBackColor = true;
@@ -606,7 +643,7 @@
             this.chbxAdministrare.Name = "chbxAdministrare";
             this.chbxAdministrare.Size = new System.Drawing.Size(120, 94);
             this.chbxAdministrare.TabIndex = 5;
-             // 
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -736,6 +773,25 @@
             // 
             this.tbPersonal.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tbPersonal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tbPersonal.Controls.Add(this.btnAddPersVisible);
+            this.tbPersonal.Controls.Add(this.label31);
+            this.tbPersonal.Controls.Add(this.label29);
+            this.tbPersonal.Controls.Add(this.label28);
+            this.tbPersonal.Controls.Add(this.label27);
+            this.tbPersonal.Controls.Add(this.label26);
+            this.tbPersonal.Controls.Add(this.label25);
+            this.tbPersonal.Controls.Add(this.label24);
+            this.tbPersonal.Controls.Add(this.label23);
+            this.tbPersonal.Controls.Add(this.btnAddPass);
+            this.tbPersonal.Controls.Add(this.cmbAddSalariu);
+            this.tbPersonal.Controls.Add(this.cmbAddSectie);
+            this.tbPersonal.Controls.Add(this.cmbAddCateg);
+            this.tbPersonal.Controls.Add(this.txbAddTEl);
+            this.tbPersonal.Controls.Add(this.txbAddAdresa);
+            this.tbPersonal.Controls.Add(this.txbAddPrenume);
+            this.tbPersonal.Controls.Add(this.txbAddNume);
+            this.tbPersonal.Controls.Add(this.txbAddCNP);
+            this.tbPersonal.Controls.Add(this.btnAddPersonal);
             this.tbPersonal.Controls.Add(this.lblOperatii);
             this.tbPersonal.Controls.Add(this.dgOperatii);
             this.tbPersonal.Controls.Add(this.tabControl3);
@@ -747,12 +803,207 @@
             this.tbPersonal.Text = "Personal";
             this.tbPersonal.UseVisualStyleBackColor = true;
             // 
+            // btnAddPersVisible
+            // 
+            this.btnAddPersVisible.Location = new System.Drawing.Point(597, 252);
+            this.btnAddPersVisible.Name = "btnAddPersVisible";
+            this.btnAddPersVisible.Size = new System.Drawing.Size(190, 40);
+            this.btnAddPersVisible.TabIndex = 37;
+            this.btnAddPersVisible.Text = "Adauga Personal";
+            this.btnAddPersVisible.UseVisualStyleBackColor = true;
+            this.btnAddPersVisible.Click += new System.EventHandler(this.btnAddPersVisible_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label31.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label31.Location = new System.Drawing.Point(684, 379);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(60, 18);
+            this.label31.TabIndex = 36;
+            this.label31.Text = "Salariu";
+            this.label31.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label29.Location = new System.Drawing.Point(684, 342);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(55, 18);
+            this.label29.TabIndex = 34;
+            this.label29.Text = "Sectie";
+            this.label29.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label28.Location = new System.Drawing.Point(669, 305);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(64, 18);
+            this.label28.TabIndex = 33;
+            this.label28.Text = "Telefon";
+            this.label28.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label27.Location = new System.Drawing.Point(669, 418);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(60, 18);
+            this.label27.TabIndex = 32;
+            this.label27.Text = "Adresa";
+            this.label27.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Location = new System.Drawing.Point(437, 415);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(75, 18);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "Prenume";
+            this.label26.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label25.Location = new System.Drawing.Point(437, 379);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(52, 18);
+            this.label25.TabIndex = 30;
+            this.label25.Text = "Nume";
+            this.label25.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label24.Location = new System.Drawing.Point(437, 305);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(43, 18);
+            this.label24.TabIndex = 29;
+            this.label24.Text = "CNP";
+            this.label24.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(437, 342);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(81, 18);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Categorie";
+            this.label23.Visible = false;
+            // 
+            // btnAddPass
+            // 
+            this.btnAddPass.Location = new System.Drawing.Point(653, 463);
+            this.btnAddPass.Name = "btnAddPass";
+            this.btnAddPass.Size = new System.Drawing.Size(98, 23);
+            this.btnAddPass.TabIndex = 27;
+            this.btnAddPass.Text = "Adauga Parola";
+            this.btnAddPass.UseVisualStyleBackColor = true;
+            this.btnAddPass.Visible = false;
+            this.btnAddPass.Click += new System.EventHandler(this.btnAddPass_Click);
+            // 
+            // cmbAddSalariu
+            // 
+            this.cmbAddSalariu.FormattingEnabled = true;
+            this.cmbAddSalariu.Location = new System.Drawing.Point(757, 376);
+            this.cmbAddSalariu.Name = "cmbAddSalariu";
+            this.cmbAddSalariu.Size = new System.Drawing.Size(125, 21);
+            this.cmbAddSalariu.TabIndex = 26;
+            this.cmbAddSalariu.Visible = false;
+            // 
+            // cmbAddSectie
+            // 
+            this.cmbAddSectie.FormattingEnabled = true;
+            this.cmbAddSectie.Location = new System.Drawing.Point(757, 339);
+            this.cmbAddSectie.Name = "cmbAddSectie";
+            this.cmbAddSectie.Size = new System.Drawing.Size(125, 21);
+            this.cmbAddSectie.TabIndex = 25;
+            this.cmbAddSectie.Visible = false;
+            // 
+            // cmbAddCateg
+            // 
+            this.cmbAddCateg.FormattingEnabled = true;
+            this.cmbAddCateg.Location = new System.Drawing.Point(525, 340);
+            this.cmbAddCateg.Name = "cmbAddCateg";
+            this.cmbAddCateg.Size = new System.Drawing.Size(125, 21);
+            this.cmbAddCateg.TabIndex = 23;
+            this.cmbAddCateg.Visible = false;
+            // 
+            // txbAddTEl
+            // 
+            this.txbAddTEl.Location = new System.Drawing.Point(757, 303);
+            this.txbAddTEl.Name = "txbAddTEl";
+            this.txbAddTEl.Size = new System.Drawing.Size(125, 20);
+            this.txbAddTEl.TabIndex = 22;
+            this.txbAddTEl.Visible = false;
+            // 
+            // txbAddAdresa
+            // 
+            this.txbAddAdresa.Location = new System.Drawing.Point(757, 416);
+            this.txbAddAdresa.Name = "txbAddAdresa";
+            this.txbAddAdresa.Size = new System.Drawing.Size(125, 20);
+            this.txbAddAdresa.TabIndex = 21;
+            this.txbAddAdresa.Visible = false;
+            // 
+            // txbAddPrenume
+            // 
+            this.txbAddPrenume.Location = new System.Drawing.Point(525, 413);
+            this.txbAddPrenume.Name = "txbAddPrenume";
+            this.txbAddPrenume.Size = new System.Drawing.Size(125, 20);
+            this.txbAddPrenume.TabIndex = 20;
+            this.txbAddPrenume.Visible = false;
+            // 
+            // txbAddNume
+            // 
+            this.txbAddNume.Location = new System.Drawing.Point(525, 376);
+            this.txbAddNume.Name = "txbAddNume";
+            this.txbAddNume.Size = new System.Drawing.Size(125, 20);
+            this.txbAddNume.TabIndex = 19;
+            this.txbAddNume.Visible = false;
+            // 
+            // txbAddCNP
+            // 
+            this.txbAddCNP.Location = new System.Drawing.Point(525, 303);
+            this.txbAddCNP.Name = "txbAddCNP";
+            this.txbAddCNP.Size = new System.Drawing.Size(125, 20);
+            this.txbAddCNP.TabIndex = 17;
+            this.txbAddCNP.Visible = false;
+            // 
+            // btnAddPersonal
+            // 
+            this.btnAddPersonal.Location = new System.Drawing.Point(664, 502);
+            this.btnAddPersonal.Name = "btnAddPersonal";
+            this.btnAddPersonal.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPersonal.TabIndex = 16;
+            this.btnAddPersonal.Text = "Adauga";
+            this.btnAddPersonal.UseVisualStyleBackColor = true;
+            this.btnAddPersonal.Visible = false;
+            this.btnAddPersonal.Click += new System.EventHandler(this.btnAddPersonal_Click);
+            // 
             // lblOperatii
             // 
             this.lblOperatii.AutoSize = true;
             this.lblOperatii.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblOperatii.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblOperatii.Location = new System.Drawing.Point(495, 18);
+            this.lblOperatii.Location = new System.Drawing.Point(485, 4);
             this.lblOperatii.Name = "lblOperatii";
             this.lblOperatii.Size = new System.Drawing.Size(355, 18);
             this.lblOperatii.TabIndex = 11;
@@ -761,7 +1012,7 @@
             // dgOperatii
             // 
             this.dgOperatii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOperatii.Location = new System.Drawing.Point(498, 54);
+            this.dgOperatii.Location = new System.Drawing.Point(488, 40);
             this.dgOperatii.Name = "dgOperatii";
             this.dgOperatii.Size = new System.Drawing.Size(377, 195);
             this.dgOperatii.TabIndex = 10;
@@ -779,7 +1030,6 @@
             // 
             this.tabPage2.BackgroundImage = global::Aplicatie_medicala.Properties.Resources.backgound;
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.btnAddPersonal);
             this.tabPage2.Controls.Add(this.btnCautaPers);
             this.tabPage2.Controls.Add(this.txbUsername);
             this.tabPage2.Controls.Add(this.cmbSectiePers);
@@ -800,19 +1050,9 @@
             this.tabPage2.Text = "Cautare";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnAddPersonal
-            // 
-            this.btnAddPersonal.Location = new System.Drawing.Point(206, 260);
-            this.btnAddPersonal.Name = "btnAddPersonal";
-            this.btnAddPersonal.Size = new System.Drawing.Size(75, 23);
-            this.btnAddPersonal.TabIndex = 16;
-            this.btnAddPersonal.Text = "Adauga";
-            this.btnAddPersonal.UseVisualStyleBackColor = true;
-            this.btnAddPersonal.Click += new System.EventHandler(this.btnAddPersonal_Click);
-            // 
             // btnCautaPers
             // 
-            this.btnCautaPers.Location = new System.Drawing.Point(64, 260);
+            this.btnCautaPers.Location = new System.Drawing.Point(176, 260);
             this.btnCautaPers.Name = "btnCautaPers";
             this.btnCautaPers.Size = new System.Drawing.Size(75, 23);
             this.btnCautaPers.TabIndex = 15;
@@ -928,7 +1168,7 @@
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Script MT Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.lblUser.Location = new System.Drawing.Point(468, 23);
+            this.lblUser.Location = new System.Drawing.Point(468, 16);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(129, 29);
             this.lblUser.TabIndex = 2;
@@ -940,7 +1180,7 @@
             this.lblIesi.BackColor = System.Drawing.Color.Transparent;
             this.lblIesi.Font = new System.Drawing.Font("Script MT Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIesi.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.lblIesi.Location = new System.Drawing.Point(754, 23);
+            this.lblIesi.Location = new System.Drawing.Point(758, 19);
             this.lblIesi.Name = "lblIesi";
             this.lblIesi.Size = new System.Drawing.Size(89, 25);
             this.lblIesi.TabIndex = 3;
@@ -950,9 +1190,11 @@
             // ctxmRefresh
             // 
             this.ctxmRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reimprospatareToolStripMenuItem});
+            this.reimprospatareToolStripMenuItem,
+            this.externareToolStripMenuItem,
+            this.actualizareToolStripMenuItem});
             this.ctxmRefresh.Name = "ctxmRefresh";
-            this.ctxmRefresh.Size = new System.Drawing.Size(158, 26);
+            this.ctxmRefresh.Size = new System.Drawing.Size(158, 92);
             // 
             // reimprospatareToolStripMenuItem
             // 
@@ -960,6 +1202,20 @@
             this.reimprospatareToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.reimprospatareToolStripMenuItem.Text = "Reimprospatare";
             this.reimprospatareToolStripMenuItem.Click += new System.EventHandler(this.reimprospatareToolStripMenuItem_Click);
+            // 
+            // externareToolStripMenuItem
+            // 
+            this.externareToolStripMenuItem.Name = "externareToolStripMenuItem";
+            this.externareToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.externareToolStripMenuItem.Text = "Externare";
+            this.externareToolStripMenuItem.Click += new System.EventHandler(this.externareToolStripMenuItem_Click);
+            // 
+            // actualizareToolStripMenuItem
+            // 
+            this.actualizareToolStripMenuItem.Name = "actualizareToolStripMenuItem";
+            this.actualizareToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.actualizareToolStripMenuItem.Text = "Actualizare";
+            this.actualizareToolStripMenuItem.Click += new System.EventHandler(this.actualizareToolStripMenuItem_Click);
             // 
             // Aplicatie
             // 
@@ -1053,8 +1309,6 @@
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.ComboBox cmbSectiePers;
         private System.Windows.Forms.ComboBox cmbCategorie;
-        private System.Windows.Forms.TextBox txbPrenumePers;
-        private System.Windows.Forms.TextBox txbNumePers;
         private System.Windows.Forms.DataGridView dgPersonal;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -1087,5 +1341,28 @@
         private System.Windows.Forms.TextBox txbPrenume_Pacient;
         private System.Windows.Forms.TextBox txbNume_Pacient;
         private System.Windows.Forms.TextBox txbCNP_Pacient;
+        private System.Windows.Forms.ToolStripMenuItem externareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizareToolStripMenuItem;
+        private System.Windows.Forms.TextBox txbAddCNP;
+        private System.Windows.Forms.TextBox txbPrenumePers;
+        private System.Windows.Forms.TextBox txbNumePers;
+        private System.Windows.Forms.TextBox txbAddTEl;
+        private System.Windows.Forms.TextBox txbAddAdresa;
+        private System.Windows.Forms.TextBox txbAddPrenume;
+        private System.Windows.Forms.TextBox txbAddNume;
+        private System.Windows.Forms.ComboBox cmbAddCateg;
+        private System.Windows.Forms.ComboBox cmbAddSectie;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button btnAddPass;
+        private System.Windows.Forms.ComboBox cmbAddSalariu;
+        private System.Windows.Forms.Button btnAddPersVisible;
+        private System.Windows.Forms.Button btnActualizarePacient;
     }
 }

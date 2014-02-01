@@ -152,5 +152,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="Insert_Diagnostic" FunctionName="Aplicatie_medicalaModel.Store.Insert_Diagnostic" />
+    <FunctionImportMapping FunctionImportName="Update_Internari_Externari" FunctionName="Aplicatie_medicalaModel.Store.Update_Internari_Externari" />
   </EntityContainerMapping>
 </Mapping>
